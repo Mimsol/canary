@@ -14,16 +14,24 @@ local function chain(player, targets, duration)
 	local meleeMonsters = {}
 	for _, creature in pairs(creatures) do
 		if creature:isMonster() then
+			local monster = creature:getMonster()
 			if creature:getType():isRewardBoss() then
 				return -1
-			elseif creature:getMaster() == nil and creature:getType():getTargetDistance() > 1 then
+			end
+			if creature:getMaster() ~= nil then goto continue end
+
+			if creature:getType():getTargetDistance() > 1 then
 				table.insert(monsters, creature)
-			elseif creature:getMaster() == nil then
+			elseif not monster:isChallenged() then
+				table.insert(meleeMonsters, creature)
+			elseif creature:getTarget():getId() ~= player:getId() then
 				table.insert(meleeMonsters, creature)
 			end
 		end
+
+		::continue::
 	end
- 
+
 	local counter = 1
 	local tempSize = #monsters
 	if tempSize < targets and #meleeMonsters > 0 then
@@ -34,7 +42,7 @@ local function chain(player, targets, duration)
 			end
 		end
 	end
- 
+
 	local lastChain = player
 	local lastChainPosition = player:getPosition()
 	local closestMonster, closestMonsterIndex, closestMonsterPosition
@@ -66,7 +74,7 @@ local function chain(player, targets, duration)
 		if updateLastChain then
 			closestMonsterPosition:sendMagicEffect(CONST_ME_CHIVALRIOUS_CHALLENGE)
 			closestMonster:changeTargetDistance(1, duration)
-			doChallengeCreature(player, closestMonster)
+			doChallengeCreature(player, closestMonster, 6000)
 			lastChain = closestMonster
 			lastChainPosition = closestMonsterPosition
 			totalChain = totalChain + 1
@@ -74,11 +82,11 @@ local function chain(player, targets, duration)
 	end
 	return totalChain
 end
- 
+
 local spell = Spell("instant")
- 
+
 function spell.onCastSpell(creature, variant)
-	local targets = 5
+	local targets = 6
 	local duration = 12000
 	if (creature and creature:getPlayer()) then
 		targets = targets + WheelOfDestinySystem.getPlayerSpellAdditionalTarget(creature:getPlayer(), "Chivalrous Challenge")
@@ -97,7 +105,7 @@ function spell.onCastSpell(creature, variant)
 		return false
 	end
 end
- 
+
 spell:group("support")
 spell:id(237)
 spell:name("Chivalrous Challenge")

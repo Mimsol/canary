@@ -1627,7 +1627,7 @@ void Player::onChangeZone(ZoneType_t zone) {
 	onThinkWheelOfDestiny(true);
 	sendWheelOfDestinyGiftOfLifeCooldown();
 	g_game().updateCreatureWalkthrough(this);
-	g_game().playerRequestInventoryImbuements(getID());
+	g_game().playerRequestInventoryImbuements(getID(), true);
 	sendIcons();
 	g_events().eventPlayerOnChangeZone(this, zone);
 }
