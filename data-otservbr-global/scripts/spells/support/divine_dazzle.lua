@@ -24,7 +24,7 @@ local function chain(player, targets, duration)
 	end
 
 	if synergies.knight then
-		duration += 2000
+		duration = duration + 2000
 	end
 
 	local creatures = Game.getSpectators(player:getPosition(), false, false, 6, 6, 6, 6)
