@@ -7,7 +7,26 @@ local function getDiagonalDistance(pos1, pos2)
 		return 14 * dstX + 10 * (dstY - dstX)
 	end
 end
+
 local function chain(player, targets, duration)
+	local party = player:getParty()
+	local synergies = {
+		knight = false,
+		druid = false
+	}
+	if party and party:isSharedExperienceEnabled() then
+		if party:hasKnight() then
+			synergies.knight = true
+		end
+		if party:hasDruid() then
+			synergies.druid = true
+		end
+	end
+
+	if synergies.knight then
+		duration += 2000
+	end
+
 	local creatures = Game.getSpectators(player:getPosition(), false, false, 6, 6, 6, 6)
 	local totalChain = 0
 	local monsters = {}
@@ -59,6 +78,15 @@ local function chain(player, targets, duration)
 		if updateLastChain then
 			closestMonsterPosition:sendMagicEffect(CONST_ME_DIVINE_DAZZLE)
 			closestMonster:changeTargetDistance(1, duration)
+			if synergies.druid then
+				doChallengeCreature(player, closestMonster, 6000)
+			end
+			if synergies.knight then
+				local monsterHaste = createConditionObject(CONDITION_HASTE)
+				setConditionParam(monsterHaste, CONDITION_PARAM_TICKS, duration)
+				setConditionParam(monsterHaste, CONDITION_PARAM_SPEED, closestMonster:getSpeed() + 20)
+				closestMonster:addCondition(monsterHaste)
+			end
 			lastChain = closestMonster
 			lastChainPosition = closestMonsterPosition
 			totalChain = totalChain + 1

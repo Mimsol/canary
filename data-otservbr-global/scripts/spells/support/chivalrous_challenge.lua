@@ -74,7 +74,7 @@ local function chain(player, targets, duration)
 		if updateLastChain then
 			closestMonsterPosition:sendMagicEffect(CONST_ME_CHIVALRIOUS_CHALLENGE)
 			closestMonster:changeTargetDistance(1, duration)
-			doChallengeCreature(player, closestMonster, 6000)
+			doChallengeCreature(player, closestMonster, duration)
 			lastChain = closestMonster
 			lastChainPosition = closestMonsterPosition
 			totalChain = totalChain + 1
