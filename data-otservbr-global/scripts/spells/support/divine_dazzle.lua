@@ -13,11 +13,19 @@ local function chain(player, targets, duration)
 	local monsters = {}
 	for _, creature in pairs(creatures) do
 		if creature:isMonster() then
+			local monster = creature:getMonster()
 			if creature:getType():isRewardBoss() then
 				return -1
-			elseif creature:getMaster() == nil and creature:getType():getTargetDistance() > 1 then
+			end
+			if creature:getMaster() ~= nil then goto continue end
+			if monster:isChallenged() then goto continue end
+
+			local type = creature:getType()
+			if type:getTargetDistance() > 1 or type:getRunHealth() > 0 then
 				table.insert(monsters, creature)
 			end
+
+			::continue::
 		end
 	end
 	local lastChain = player
@@ -62,7 +70,7 @@ end
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, variant)
-	local targets = 3
+	local targets = 5
 	local duration = 12000
 	local player = creature:getPlayer()
 	if creature and player then
@@ -77,7 +85,7 @@ function spell.onCastSpell(creature, variant)
 		creature:getPosition():sendMagicEffect(CONST_ME_POFF)
 		return false
 	else
-		creature:sendCancelMessage("There are no ranged monsters.")
+		creature:sendCancelMessage("There are no applicable monsters.")
 		creature:getPosition():sendMagicEffect(CONST_ME_POFF)
 		return false
 	end
@@ -92,7 +100,7 @@ spell:level(250)
 spell:mana(80)
 spell:isAggressive(false)
 spell:isPremium(true)
-spell:cooldown(16 * 1000)
+spell:cooldown(2 * 1000)
 spell:groupCooldown(2 * 1000)
 spell:vocation("paladin;true", "royal paladin;true")
 spell:needLearn(false)

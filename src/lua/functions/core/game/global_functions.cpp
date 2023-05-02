@@ -549,7 +549,7 @@ int GlobalFunctions::luaDoTargetCombatDispel(lua_State* L) {
 }
 
 int GlobalFunctions::luaDoChallengeCreature(lua_State* L) {
-	// doChallengeCreature(cid, target)
+	// doChallengeCreature(cid, target, duration)
 	Creature* creature = getCreature(L, 1);
 	if (!creature) {
 		reportErrorFunc(getErrorDesc(LUA_ERROR_CREATURE_NOT_FOUND));
@@ -564,7 +564,9 @@ int GlobalFunctions::luaDoChallengeCreature(lua_State* L) {
 		return 1;
 	}
 
-	target->challengeCreature(creature);
+	uint32_t duration = getNumber<uint32_t>(L, 3);
+
+	target->challengeCreature(creature, duration);
 	pushBoolean(L, true);
 	return 1;
 }

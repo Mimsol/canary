@@ -375,7 +375,7 @@ class Creature : virtual public Thing {
 		virtual void drainHealth(Creature* attacker, int32_t damage);
 		virtual void drainMana(Creature* attacker, int32_t manaLoss);
 
-		virtual bool challengeCreature(Creature*) {
+		virtual bool challengeCreature(Creature*, uint32_t) {
 			return false;
 		}
 
@@ -495,7 +495,6 @@ class Creature : virtual public Thing {
 		}
 
 		int32_t getWalkCache(const Position &pos) const;
-
 		const Position &getLastPosition() const {
 			return lastPosition;
 		}
