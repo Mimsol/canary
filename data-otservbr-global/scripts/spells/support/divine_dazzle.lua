@@ -37,7 +37,7 @@ local function chain(player, targets, duration)
 				return -1
 			end
 			if creature:getMaster() ~= nil then goto continue end
-			if monster:isChallenged() then goto continue end
+			if not synergies.knight and monster:isChallenged() then goto continue end
 
 			local type = creature:getType()
 			if type:getTargetDistance() > 1 or type:getRunHealth() > 0 then
@@ -76,20 +76,22 @@ local function chain(player, targets, duration)
 			end
 		end
 		if updateLastChain then
-			closestMonsterPosition:sendMagicEffect(CONST_ME_DIVINE_DAZZLE)
-			closestMonster:changeTargetDistance(1, duration)
-			if synergies.druid then
-				doChallengeCreature(player, closestMonster, 6000)
-			end
 			if synergies.knight then
 				local monsterHaste = createConditionObject(CONDITION_HASTE)
 				setConditionParam(monsterHaste, CONDITION_PARAM_TICKS, duration)
-				setConditionParam(monsterHaste, CONDITION_PARAM_SPEED, closestMonster:getSpeed() + 20)
+				setConditionParam(monsterHaste, CONDITION_PARAM_SPEED, closestMonster:getBaseSpeed() + 20)
 				closestMonster:addCondition(monsterHaste)
 			end
-			lastChain = closestMonster
-			lastChainPosition = closestMonsterPosition
-			totalChain = totalChain + 1
+			closestMonsterPosition:sendMagicEffect(CONST_ME_DIVINE_DAZZLE)
+			if not closestMonster:isChallenged() then
+				closestMonster:changeTargetDistance(1, duration)
+				if synergies.druid then
+					doChallengeCreature(player, closestMonster, 6000)
+				end
+				lastChain = closestMonster
+				lastChainPosition = closestMonsterPosition
+				totalChain = totalChain + 1
+			end
 		end
 	end
 	return totalChain
