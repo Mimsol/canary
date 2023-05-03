@@ -7,7 +7,7 @@ function spell.onCastSpell(creature, var)
 	local party = creature:getParty()
 	local hasSynergy = false
 	if party and party:isSharedExperienceEnabled() then
-		hasSynergy = party:hasKnight()
+		hasSynergy = party:hasSorcerer()
 	end
 
 	local boostPercent = 99
