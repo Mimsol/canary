@@ -1,45 +1,28 @@
-local combat = Combat()
-combat:setArea(createCombatArea(AREA_CIRCLE5X5))
-combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MAGIC_BLUE)
-combat:setParameter(COMBAT_PARAM_AGGRESSIVE, 0)
-
-local condition = Condition(CONDITION_ATTRIBUTES)
-condition:setParameter(CONDITION_PARAM_SUBID, 2)
-condition:setParameter(CONDITION_PARAM_BUFF_SPELL, 1)
-condition:setParameter(CONDITION_PARAM_TICKS, 2 * 60 * 1000)
-condition:setParameter(CONDITION_PARAM_SKILL_SHIELD, 3)
-
 local baseMana = 90
 
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
-local position = creature:getPosition()
-
+	local position = creature:getPosition()
 	local party = creature:getParty()
-	if not party then
-		creature:sendCancelMessage("No party members in range.")
-		position:sendMagicEffect(CONST_ME_POFF)
-		return false
+	local hasSynergy = false
+	if party and party:isSharedExperienceEnabled() then
+		hasSynergy = party:hasKnight()
 	end
 
-	local membersList = party:getMembers()
-	membersList[#membersList + 1] = party:getLeader()
-	if membersList == nil or type(membersList) ~= 'table' or #membersList <= 1 then
-		creature:sendCancelMessage("No party members in range.")
-		position:sendMagicEffect(CONST_ME_POFF)
-		return false
+	local boostPercent = 99
+	if hasSynergy then
+		boostPercent = 98
 	end
 
-	local affectedList = {}
-	for _, targetPlayer in ipairs(membersList) do
-		if targetPlayer:getPosition():getDistance(position) <= 36 then
-			affectedList[#affectedList + 1] = targetPlayer
-		end
+	local members = {party:getLeader()}
+
+	for _, member in ipairs(party:getMembers()) do
+		table.insert(members, member)
 	end
 
-	local tmp = #affectedList
-	if tmp <= 1 then
+	local tmp = #members
+	if tmp == 0 then
 		creature:sendCancelMessage("No party members in range.")
 		position:sendMagicEffect(CONST_ME_POFF)
 		return false
@@ -52,17 +35,19 @@ local position = creature:getPosition()
 		return false
 	end
 
-	if not combat:execute(creature, var) then
-		creature:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
-		position:sendMagicEffect(CONST_ME_POFF)
-		return false
-	end
-
-	creature:addMana(-(mana - baseMana), false)
+	creature:addMana(-(mana - baseMana), FALSE)
 	creature:addManaSpent((mana - baseMana))
 
-	for _, targetPlayer in ipairs(affectedList) do
-		targetPlayer:addCondition(condition)
+	for _, member in ipairs(members) do
+		if creature:getId() ~= member:getId() then
+			local trainParty = Condition(CONDITION_ATTRIBUTES)
+			trainParty:setParameter(CONDITION_PARAM_SUBID, 5)
+			trainParty:setParameter(CONDITION_PARAM_TICKS, 30000)
+			trainParty:setParameter(CONDITION_PARAM_BUFF_SPELL, true)
+			trainParty:setParameter(CONDITION_PARAM_BUFF_DAMAGERECEIVED, boostPercent)
+			member:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
+			member:addCondition(trainParty)
+		end
 	end
 
 	return true

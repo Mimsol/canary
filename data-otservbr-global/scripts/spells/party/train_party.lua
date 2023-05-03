@@ -3,6 +3,7 @@ local baseMana = 60
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
+	local position = creature:getPosition()
 	local party = creature:getParty()
 	local hasSynergy = false
 	if party and party:isSharedExperienceEnabled() then
