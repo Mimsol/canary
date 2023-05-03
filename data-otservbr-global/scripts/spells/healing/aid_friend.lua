@@ -16,16 +16,12 @@ local spell = Spell("instant")
 
 function spell.onCastSpell(creature, variant)
 	local party = creature:getParty()
-	local synergies = {
-		knight = false,
-	}
+	local hasSynergy = false
 	if party and party:isSharedExperienceEnabled() then
-		if party:hasKnight() then
-			synergies.knight = true
-		end
+		hasSynergy = party:hasKnight()
 	end
 
-	if not synergies.knight then
+	if not hasSynergy then
 		creature:sendCancelMessage("You can't use this spell if there's no knight in your party or shared experience isn't active.")
 		creature:getPosition():sendMagicEffect(CONST_ME_POFF)
 		return false

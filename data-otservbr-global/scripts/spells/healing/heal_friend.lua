@@ -16,17 +16,13 @@ local spell = Spell("instant")
 
 function spell.onCastSpell(creature, variant)
 	local party = creature:getParty()
-	local synergies = {
-		knight = false,
-	}
+	local hasSynergy = false
 	if party and party:isSharedExperienceEnabled() then
-		if party:hasKnight() then
-			synergies.knight = true
-		end
+		hasSynergy = party:hasKnight()
 	end
 
 	local groupCooldown = 1000
-	if synergies.knight then
+	if hasSynergy then
 		groupCooldown = 800
 	end
 	creature:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
