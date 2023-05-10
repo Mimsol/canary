@@ -318,6 +318,10 @@ bool IOMap::parseTileArea(OTB::Loader &loader, const OTB::Node &tileAreaNode, Ma
 						break;
 					}
 
+					if (id == 3501 || id == 3508 || id == 23399 || id == 23400 || id == 23401 || id == 23402) {
+						continue;
+					}
+
 					Item* item = Item::CreateItem(id, tilePosition);
 					if (!item) {
 						continue;
@@ -405,6 +409,10 @@ bool IOMap::parseTileArea(OTB::Loader &loader, const OTB::Node &tileAreaNode, Ma
 				setLastErrorString(ss.str());
 				SPDLOG_WARN("[IOMap::loadMap] - {}", ss.str());
 				break;
+			}
+
+			if (id == 3501 || id == 3508 || id == 23399 || id == 23400 || id == 23401 || id == 23402) {
+				continue;
 			}
 
 			Item* item = Item::CreateItem(id, tilePosition);
