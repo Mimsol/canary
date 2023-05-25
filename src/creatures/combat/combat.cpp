@@ -64,6 +64,12 @@ CombatDamage Combat::getCombatDamage(Creature* creature, Creature* target) const
 		} else if (Player* player = creature->getPlayer()) {
 			if (params.valueCallback) {
 				params.valueCallback->getMinMaxValues(player, damage, params.useCharges);
+			} else if (formulaType == COMBAT_FORMULA_RUNIC) {
+				int32_t levelFormula = player->getLevel() * 2 + player->getMagicLevel() * 3;
+				damage.primary.value = (1 + player->getSkillLevel(SKILL_RUNIC) * g_configManager().getFloat(RUNIC_MULTIPLIER)) * normal_random(
+					static_cast<int32_t>(levelFormula * mina + minb),
+					static_cast<int32_t>(levelFormula * maxa + maxb)
+				);
 			} else if (formulaType == COMBAT_FORMULA_LEVELMAGIC) {
 				int32_t levelFormula = getLevelFormula(player, wheelSpell, damage);
 				damage.primary.value = normal_random(
@@ -473,6 +479,11 @@ bool Combat::setParam(CombatParam_t param, uint32_t value) {
 
 bool Combat::setCallback(CallBackParam_t key) {
 	switch (key) {
+		case CALLBACK_PARAM_RUNICVALUE: {
+			params.valueCallback.reset(new ValueCallback(COMBAT_FORMULA_RUNIC));
+			return true;
+		}
+
 		case CALLBACK_PARAM_LEVELMAGICVALUE: {
 			params.valueCallback.reset(new ValueCallback(COMBAT_FORMULA_LEVELMAGIC));
 			return true;
@@ -498,6 +509,7 @@ bool Combat::setCallback(CallBackParam_t key) {
 
 CallBack* Combat::getCallback(CallBackParam_t key) {
 	switch (key) {
+		case CALLBACK_PARAM_RUNICVALUE:
 		case CALLBACK_PARAM_LEVELMAGICVALUE:
 		case CALLBACK_PARAM_SKILLVALUE: {
 			return params.valueCallback.get();
@@ -1307,6 +1319,7 @@ void ValueCallback::getMinMaxValues(Player* player, CombatDamage &damage, bool u
 	bool shouldCalculateSecondaryDamage = false;
 
 	switch (type) {
+		case COMBAT_FORMULA_RUNIC:
 		case COMBAT_FORMULA_LEVELMAGIC: {
 			// onGetPlayerMinMaxValues(player, level, maglevel, runic)
 			lua_pushnumber(L, player->getLevel());
@@ -1371,7 +1384,7 @@ void ValueCallback::getMinMaxValues(Player* player, CombatDamage &damage, bool u
 		LuaScriptInterface::reportError(nullptr, LuaScriptInterface::popString(L));
 	} else {
 
-		int32_t defaultDmg = normal_random(
+		int32_t defaultDmg = (1 + player->getSkillLevel(SKILL_RUNIC) * g_configManager().getFloat(RUNIC_MULTIPLIER)) * normal_random(
 			LuaScriptInterface::getNumber<int32_t>(L, -2),
 			LuaScriptInterface::getNumber<int32_t>(L, -1)
 		);
