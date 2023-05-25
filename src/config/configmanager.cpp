@@ -344,6 +344,8 @@ bool ConfigManager::load() {
 	integer[HAZARD_SPAWN_PLUNDER_MULTIPLIER] = getGlobalNumber(L, "hazardSpawnPlunderMultiplier", 25);
 	integer[LOW_LEVEL_BONUS_EXP] = getGlobalNumber(L, "lowLevelBonusExp", 50);
 
+	floating[RUNIC_MULTIPLIER] = getGlobalFloat(L, "runicMultiplier", 1 / 500.0);
+
 	boolean[VIP_SYSTEM_ENABLED] = getGlobalBoolean(L, "vipSystemEnabled", false);
 	integer[VIP_BONUS_EXP] = getGlobalNumber(L, "vipBonusExp", 20);
 	integer[VIP_BONUS_LOOT] = getGlobalNumber(L, "vipBonusLoot", 20);
