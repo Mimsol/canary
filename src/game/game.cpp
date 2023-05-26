@@ -6609,6 +6609,9 @@ void Game::buildMessageAsAttacker(
 ) const {
 	ss.str({});
 	ss << ucfirst(target->getNameDescription()) << " loses " << damageString << " due to your attack.";
+	if (damage.critical) {
+		ss << " (Critical hit)";
+	}
 	if (damage.extension) {
 		ss << " " << damage.exString;
 	}
