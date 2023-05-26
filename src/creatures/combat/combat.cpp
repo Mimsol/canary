@@ -52,6 +52,10 @@ CombatDamage Combat::getCombatDamage(Creature* creature, Creature* target) const
 		wheelSpell = attackerPlayer->wheel()->getCombatDataSpell(damage);
 	}
 	// End
+	if (formulaType == COMBAT_FORMULA_RUNIC) {
+		damage.runic = true;
+	}
+
 	if (formulaType == COMBAT_FORMULA_DAMAGE) {
 		damage.primary.value = normal_random(
 			static_cast<int32_t>(mina),
@@ -66,10 +70,7 @@ CombatDamage Combat::getCombatDamage(Creature* creature, Creature* target) const
 				params.valueCallback->getMinMaxValues(player, damage, params.useCharges);
 			} else if (formulaType == COMBAT_FORMULA_RUNIC) {
 				int32_t levelFormula = player->getLevel() * 2 + player->getMagicLevel() * 3;
-				damage.primary.value = (1 + player->getSkillLevel(SKILL_RUNIC) * g_configManager().getFloat(RUNIC_MULTIPLIER)) * normal_random(
-					static_cast<int32_t>(levelFormula * mina + minb),
-					static_cast<int32_t>(levelFormula * maxa + maxb)
-				);
+				damage.primary.value = (1 + player->getSkillLevel(SKILL_RUNIC) * g_configManager().getFloat(RUNIC_MULTIPLIER)) * normal_random(static_cast<int32_t>(levelFormula * mina + minb), static_cast<int32_t>(levelFormula * maxa + maxb));
 			} else if (formulaType == COMBAT_FORMULA_LEVELMAGIC) {
 				int32_t levelFormula = getLevelFormula(player, wheelSpell, damage);
 				damage.primary.value = normal_random(
@@ -571,6 +572,9 @@ void Combat::CombatHealthFunc(Creature* caster, Creature* target, const CombatPa
 
 	// Player attacking monster
 	if (attackerPlayer && targetMonster) {
+		if (damage.runic) {
+			attackerPlayer->addSkillAdvance(SKILL_RUNIC, 1);
+		}
 		const PreySlot* slot = attackerPlayer->getPreyWithMonster(targetMonster->getRaceId());
 		if (slot && slot->isOccupied() && slot->bonus == PreyBonus_Damage && slot->bonusTimeLeft > 0) {
 			damage.primary.value += static_cast<int32_t>(std::ceil((damage.primary.value * slot->bonusPercentage) / 100));
@@ -979,6 +983,7 @@ void Combat::CombatFunc(Creature* caster, const Position &pos, const AreaCombat*
 		tmpDamage.runeSpellName = data->runeSpellName;
 		tmpDamage.lifeLeechChance = data->lifeLeechChance;
 		tmpDamage.manaLeechChance = data->manaLeechChance;
+		tmpDamage.runic = data->runic;
 	}
 
 	// Wheel of destiny get beam affected total
@@ -1318,6 +1323,9 @@ void ValueCallback::getMinMaxValues(Player* player, CombatDamage &damage, bool u
 	int parameters = 1;
 	bool shouldCalculateSecondaryDamage = false;
 
+	if (type == COMBAT_FORMULA_RUNIC) {
+		damage.runic = true;
+	}
 	switch (type) {
 		case COMBAT_FORMULA_RUNIC:
 		case COMBAT_FORMULA_LEVELMAGIC: {
@@ -1384,10 +1392,7 @@ void ValueCallback::getMinMaxValues(Player* player, CombatDamage &damage, bool u
 		LuaScriptInterface::reportError(nullptr, LuaScriptInterface::popString(L));
 	} else {
 
-		int32_t defaultDmg = (1 + player->getSkillLevel(SKILL_RUNIC) * g_configManager().getFloat(RUNIC_MULTIPLIER)) * normal_random(
-			LuaScriptInterface::getNumber<int32_t>(L, -2),
-			LuaScriptInterface::getNumber<int32_t>(L, -1)
-		);
+		int32_t defaultDmg = (1 + player->getSkillLevel(SKILL_RUNIC) * g_configManager().getFloat(RUNIC_MULTIPLIER)) * normal_random(LuaScriptInterface::getNumber<int32_t>(L, -2), LuaScriptInterface::getNumber<int32_t>(L, -1));
 
 		if (shouldCalculateSecondaryDamage) {
 			double factor = (double)elementAttack / (double)attackValue; // attack value here is phys dmg + element dmg
