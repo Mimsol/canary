@@ -184,7 +184,7 @@ function Player:onLook(thing, position, distance)
 		end
 
 		description = string.format(
-		"%s\nPosition: %d, %d, %d",
+		"%s\nPosition: (%d, %d, %d)",
 		description, position.x, position.y, position.z
 		)
 
