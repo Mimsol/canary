@@ -341,7 +341,11 @@ void Npc::onPlayerSellItem(Player* player, uint16_t itemId, uint8_t subType, uin
 
 	auto totalRemoved = amount - toRemove;
 	auto totalCost = static_cast<uint64_t>(sellPrice * totalRemoved);
-	g_game().addMoney(player, totalCost);
+	if (g_configManager().getBoolean(AUTOBANK)) {
+		player->setBankBalance(player->getBankBalance() + totalCost);
+	} else {
+		g_game().addMoney(player, totalCost);
+	}
 
 	// npc:onSellItem(player, itemId, subType, amount, ignore, itemName, totalCost)
 	CreatureCallback callback = CreatureCallback(npcType->info.scriptInterface, this);
