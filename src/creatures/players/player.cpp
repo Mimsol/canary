@@ -122,6 +122,9 @@ void Player::setID() {
 
 std::string Player::getDescription(int32_t lookDistance) const {
 	std::ostringstream s;
+	std::string pronoun = getSubjectPronoun();
+	capitalizeWords(pronoun);
+
 	if (lookDistance == -1) {
 		s << "yourself.";
 
@@ -143,16 +146,12 @@ std::string Player::getDescription(int32_t lookDistance) const {
 		}
 		s << '.';
 
-		if (sex == PLAYERSEX_FEMALE) {
-			s << " She";
-		} else {
-			s << " He";
-		}
+		s << " "  << pronoun;
 
 		if (group->access) {
-			s << " is " << group->name << '.';
+			s << " " << getSubjectVerb() << " " << group->name << '.';
 		} else if (vocation->getId() != VOCATION_NONE) {
-			s << " is " << vocation->getVocDescription() << '.';
+			s << " " << getSubjectVerb() << " " << vocation->getVocDescription() << '.';
 		} else {
 			s << " has no vocation.";
 		}
@@ -169,10 +168,8 @@ std::string Player::getDescription(int32_t lookDistance) const {
 	if (party) {
 		if (lookDistance == -1) {
 			s << " Your party has ";
-		} else if (sex == PLAYERSEX_FEMALE) {
-			s << " She is in a party with ";
 		} else {
-			s << " He is in a party with ";
+			s << " " << pronoun << " " << getSubjectVerb() << " in a party with ";
 		}
 
 		size_t memberCount = party->getMemberCount() + 1;
@@ -199,10 +196,8 @@ std::string Player::getDescription(int32_t lookDistance) const {
 
 		if (lookDistance == -1) {
 			s << " You are ";
-		} else if (sex == PLAYERSEX_FEMALE) {
-			s << " She is ";
 		} else {
-			s << " He is ";
+			s << " " << pronoun << " " << getSubjectVerb() << " ";
 		}
 
 		s << guildRank->name << " of the " << guild->getName();
@@ -889,18 +884,19 @@ bool Player::canWalkthrough(const Creature* creature) const {
 			return false;
 		}
 
-		Player* thisPlayer = const_cast<Player*>(this);
-		if ((OTSYS_TIME() - lastWalkthroughAttempt) > 2000) {
-			thisPlayer->setLastWalkthroughAttempt(OTSYS_TIME());
-			return false;
-		}
+		// Instant walk through in non-npn
+		// Player* thisPlayer = const_cast<Player*>(this);
+		// if ((OTSYS_TIME() - lastWalkthroughAttempt) > 2000) {
+		// 	thisPlayer->setLastWalkthroughAttempt(OTSYS_TIME());
+		// 	return false;
+		// }
 
-		if (creature->getPosition() != lastWalkthroughPosition) {
-			thisPlayer->setLastWalkthroughPosition(creature->getPosition());
-			return false;
-		}
+		// if (creature->getPosition() != lastWalkthroughPosition) {
+		// 	thisPlayer->setLastWalkthroughPosition(creature->getPosition());
+		// 	return false;
+		// }
 
-		thisPlayer->setLastWalkthroughPosition(creature->getPosition());
+		// thisPlayer->setLastWalkthroughPosition(creature->getPosition());
 		return true;
 	} else if (npc) {
 		const Tile* tile = npc->getTile();
@@ -2864,7 +2860,9 @@ Item* Player::getCorpse(Creature* lastHitCreature, Creature* mostDamageCreature)
 	if (corpse && corpse->getContainer()) {
 		std::ostringstream ss;
 		if (lastHitCreature) {
-			ss << "You recognize " << getNameDescription() << ". " << (getSex() == PLAYERSEX_FEMALE ? "She" : "He") << " was killed by " << lastHitCreature->getNameDescription() << '.';
+			std::string pronoun = getSubjectPronoun();
+			capitalizeWords(pronoun);
+			ss << "You recognize " << getNameDescription() << ". " << pronoun << " " << getSubjectVerb(true) << " killed by " << lastHitCreature->getNameDescription() << '.';
 		} else {
 			ss << "You recognize " << getNameDescription() << '.';
 		}
@@ -4896,6 +4894,10 @@ bool Player::getFamiliar(const Familiar &familiar) const {
 
 void Player::setSex(PlayerSex_t newSex) {
 	sex = newSex;
+}
+
+void Player::setPronoun(PlayerPronoun_t newPronoun) {
+	pronoun = newPronoun;
 }
 
 Skulls_t Player::getSkull() const {

@@ -398,6 +398,18 @@ enum PlayerSex_t : uint8_t {
 	PLAYERSEX_LAST = PLAYERSEX_MALE
 };
 
+enum PlayerPronoun_t : uint8_t {
+    PLAYERPRONOUN_UNSET = 0,
+    PLAYERPRONOUN_THEY = 1,
+    PLAYERPRONOUN_SHE = 2,
+    PLAYERPRONOUN_HE = 3,
+    PLAYERPRONOUN_ZE = 4,
+    PLAYERPRONOUN_NAME = 5,
+
+    PLAYERPRONOUN_LAST = PLAYERPRONOUN_NAME
+};
+
+
 enum skills_t : int8_t {
 	SKILL_NONE = -1,
 	SKILL_LUCK = 0,
