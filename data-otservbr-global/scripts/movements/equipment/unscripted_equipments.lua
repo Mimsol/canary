@@ -106,7 +106,7 @@ local items = {
 		type = "deequip",
 		slot = "legs",
 		level = 270
-	},	
+	},
 	{
 		-- Stitched Mutant Hide Legs
 		itemid = 40589,
@@ -9030,7 +9030,7 @@ local items = {
 		type = "equip",
 		slot = "hand",
 		level = 120
-		
+
 	},
 	{
 		-- mycological mace
@@ -9537,7 +9537,7 @@ local items = {
 		type = "equip",
 		slot = "hand",
 		level = 48
-		
+
 	},
 	{
 		-- deepling squelcher
@@ -11926,7 +11926,7 @@ local items = {
 		itemid = 8072,
 		type = "equip",
 		slot = "shield",
-		level = 30,
+		-- level = 30,
 		vocation = {
 			{"Sorcerer", true},
 			{"Druid", true, true},
@@ -14596,7 +14596,7 @@ local items = {
 		itemid = 7408,
 		type = "equip",
 		slot = "hand",
-		level = 25
+		-- level = 25
 	},
 	{
 		-- wyvern fang
@@ -17388,7 +17388,7 @@ local items = {
 		itemid = 3320,
 		type = "equip",
 		slot = "hand",
-        level = 35		
+        level = 35
 	},
 	{
 		-- fire axe
@@ -18555,7 +18555,7 @@ local items = {
 		itemid = 3073,
 		type = "equip",
 		slot = "hand",
-		level = 26,
+		-- level = 26,
 		vocation = {
 			{"Sorcerer", true},
 			{"Master Sorcerer"}
@@ -18566,7 +18566,7 @@ local items = {
 		itemid = 3073,
 		type = "deequip",
 		slot = "hand",
-		level = 26
+		-- level = 26
 	},
 	{
 		-- wand of decay
@@ -18681,7 +18681,7 @@ local items = {
 		itemid = 3065,
 		type = "equip",
 		slot = "hand",
-		level = 26,
+		-- level = 26,
 		vocation = {
 			{"Druid", true},
 			{"Elder Druid"}
@@ -18692,7 +18692,7 @@ local items = {
 		itemid = 3065,
 		type = "deequip",
 		slot = "hand",
-		level = 26
+		-- level = 26
 	},
 	{
 		-- gold ring
