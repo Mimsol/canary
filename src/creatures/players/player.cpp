@@ -146,7 +146,7 @@ std::string Player::getDescription(int32_t lookDistance) const {
 		}
 		s << '.';
 
-		s << " "  << pronoun;
+		s << " " << pronoun;
 
 		if (group->access) {
 			s << " " << getSubjectVerb() << " " << group->name << '.';
