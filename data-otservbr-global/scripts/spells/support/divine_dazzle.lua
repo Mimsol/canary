@@ -7,7 +7,26 @@ local function getDiagonalDistance(pos1, pos2)
 		return 14 * dstX + 10 * (dstY - dstX)
 	end
 end
+
 local function chain(player, targets, duration)
+	local party = player:getParty()
+	local synergies = {
+		knight = false,
+		druid = false
+	}
+	if party and party:isSharedExperienceEnabled() then
+		if party:hasKnight() then
+			synergies.knight = true
+		end
+		if party:hasDruid() then
+			synergies.druid = true
+		end
+	end
+
+	if synergies.knight then
+		duration = duration + 2000
+	end
+
 	local creatures = Game.getSpectators(player:getPosition(), false, false, 6, 6, 6, 6)
 	local totalChain = 0
 	local monsters = {}
@@ -18,7 +37,7 @@ local function chain(player, targets, duration)
 				return -1
 			end
 			if creature:getMaster() ~= nil then goto continue end
-			if monster:isChallenged() then goto continue end
+			if not synergies.knight and monster:isChallenged() then goto continue end
 
 			local type = creature:getType()
 			if type:getTargetDistance() > 1 or type:getRunHealth() > 0 then
@@ -57,11 +76,22 @@ local function chain(player, targets, duration)
 			end
 		end
 		if updateLastChain then
+			if synergies.knight then
+				local monsterHaste = createConditionObject(CONDITION_HASTE)
+				setConditionParam(monsterHaste, CONDITION_PARAM_TICKS, duration)
+				setConditionParam(monsterHaste, CONDITION_PARAM_SPEED, closestMonster:getBaseSpeed() + 20)
+				closestMonster:addCondition(monsterHaste)
+			end
 			closestMonsterPosition:sendMagicEffect(CONST_ME_DIVINE_DAZZLE)
-			closestMonster:changeTargetDistance(1, duration)
-			lastChain = closestMonster
-			lastChainPosition = closestMonsterPosition
-			totalChain = totalChain + 1
+			if not closestMonster:isChallenged() then
+				closestMonster:changeTargetDistance(1, duration)
+				if synergies.druid then
+					doChallengeCreature(player, closestMonster, 6000)
+				end
+				lastChain = closestMonster
+				lastChainPosition = closestMonsterPosition
+				totalChain = totalChain + 1
+			end
 		end
 	end
 	return totalChain
