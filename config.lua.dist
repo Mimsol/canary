@@ -33,6 +33,7 @@ blackSkullDuration = 3
 orangeSkullDuration = 7
 
 onlyInvitedCanMoveHouseItems = true
+onlySubownerCanMoveHouseItems = false
 cleanProtectionZones = false
 
 -- Connection Config

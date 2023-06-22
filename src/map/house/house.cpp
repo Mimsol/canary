@@ -293,6 +293,10 @@ bool House::getAccessList(uint32_t listId, std::string &list) const {
 	return door->getAccessList(list);
 }
 
+bool House::isSubowner(const Player* player) {
+	return getHouseAccessLevel(player) < HOUSE_SUBOWNER;
+}
+
 bool House::isInvited(const Player* player) {
 	return getHouseAccessLevel(player) != HOUSE_NOT_INVITED;
 }

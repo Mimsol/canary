@@ -3991,6 +3991,16 @@ void Game::playerRequestTrade(uint32_t playerId, const Position &pos, uint8_t st
 		}
 	}
 
+	if (g_configManager().getBoolean(ONLY_SUBOWNER_CAN_MOVE_HOUSE_ITEMS)) {
+		if (HouseTile* houseTile = dynamic_cast<HouseTile*>(tradeItem->getTile())) {
+			House* house = houseTile->getHouse();
+			if (house && !house->isSubowner(player)) {
+				player->sendCancelMessage(RETURNVALUE_PLAYERISNOTINVITED);
+				return;
+			}
+		}
+	}
+
 	const Position &playerPosition = player->getPosition();
 	const Position &tradeItemPosition = tradeItem->getPosition();
 	if (playerPosition.z != tradeItemPosition.z) {

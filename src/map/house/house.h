@@ -116,6 +116,7 @@ class House {
 		bool getAccessList(uint32_t listId, std::string &list) const;
 
 		bool isInvited(const Player* player);
+		bool isSubowner(const Player* player);
 
 		AccessHouseLevel_t getHouseAccessLevel(const Player* player);
 		bool kickPlayer(Player* player, Player* target);

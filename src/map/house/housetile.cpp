@@ -128,5 +128,11 @@ ReturnValue HouseTile::queryRemove(const Thing &thing, uint32_t count, uint32_t 
 			return RETURNVALUE_NOTMOVEABLE;
 		}
 	}
+	if (actor && g_configManager().getBoolean(ONLY_SUBOWNER_CAN_MOVE_HOUSE_ITEMS)) {
+		Player* actorPlayer = actor->getPlayer();
+		if (!house->isSubowner(actorPlayer)) {
+			return RETURNVALUE_PLAYERISNOTINVITED;
+		}
+	}
 	return Tile::queryRemove(thing, count, flags);
 }
