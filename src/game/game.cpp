@@ -26,6 +26,7 @@
 #include "creatures/monsters/monster.h"
 #include "lua/creature/movement.h"
 #include "game/scheduling/scheduler.h"
+#include "game/scheduling/save_manager.h"
 #include "server/server.h"
 #include "creatures/combat/spells.h"
 #include "lua/creature/talkaction.h"
@@ -315,7 +316,7 @@ void Game::saveGameState() {
 
 	for (const auto &it : players) {
 		it.second->loginPosition = it.second->getPosition();
-		IOLoginData::savePlayer(it.second);
+		IOLoginData::savePlayer(it.second, true);
 	}
 
 	for (const auto &it : guilds) {
@@ -7134,6 +7135,7 @@ void Game::shutdown() {
 	g_scheduler().shutdown();
 	g_databaseTasks().shutdown();
 	g_dispatcher().shutdown();
+	g_saveManager().shutdown();
 	map.spawnsMonster.clear();
 	map.spawnsNpc.clear();
 	raids.clear();
