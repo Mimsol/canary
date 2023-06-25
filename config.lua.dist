@@ -393,3 +393,16 @@ location = "South America"
 -- Leave empty if you wish to disable.
 discordWebhookURL = ""
 
+-- VIP System
+-- NOTE: set vipSystemEnabled to true to enable the vip system functionalities (this overrides premium checks)
+-- NOTE: vipBonusExp = 0 is deactivated, active changing value between 1 and 100 (percent xp bonus to gain. ex: 3 = 3%, 30 = 30%)
+-- NOTE: vipBonusLoot = 0 is deactivated, active changing value between 1 and 100 (percent loot bonus to gain. ex: 3 = 3%, 30 = 30%)
+-- NOTE: vipBonusSkill = 0 is deactivated, active changing value between 1 and 100 (percent skill bonus to gain. ex: 3 = 3%, 30 = 30%)
+-- NOTE: vipStayOnline = when this config is activated, players vip will be kicked after 'kickIdlePlayerAfterMinutes' config minutes too
+-- NOTE: vipAutoLootVipOnly = activates only vip to get automatic loot, config 'autoLoot' need to be enabled, for this config works
+vipSystemEnabled = false
+vipBonusExp = 0
+vipBonusLoot = 0
+vipBonusSkill = 0
+vipAutoLootVipOnly = false
+vipStayOnline = false

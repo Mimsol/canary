@@ -142,11 +142,11 @@ bool IOLoginData::preloadPlayer(Player* player, const std::string &name) {
 	player->setGroup(group);
 	player->accountNumber = result->getNumber<uint32_t>("account_id");
 	player->accountType = static_cast<account::AccountType>(result->getNumber<uint16_t>("account_type"));
-	if (!g_configManager().getBoolean(FREE_PREMIUM)) {
-		player->premiumDays = result->getNumber<uint16_t>("premium_days");
-	} else {
-		player->premiumDays = std::numeric_limits<uint16_t>::max();
-	}
+	// if (!g_configManager().getBoolean(FREE_PREMIUM)) {
+	player->premiumDays = result->getNumber<uint16_t>("premium_days");
+	// } else {
+	// 	player->premiumDays = std::numeric_limits<uint16_t>::max();
+	// }
 
 	/*
 	  Loyalty system:
@@ -211,11 +211,11 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result, bool disable /
 	acc.GetID(&(player->accountNumber));
 	acc.GetAccountType(&(player->accountType));
 
-	if (g_configManager().getBoolean(FREE_PREMIUM)) {
-		player->premiumDays = std::numeric_limits<uint16_t>::max();
-	} else {
-		acc.GetPremiumRemaningDays(&(player->premiumDays));
-	}
+	// if (g_configManager().getBoolean(FREE_PREMIUM)) {
+	// 	player->premiumDays = std::numeric_limits<uint16_t>::max();
+	// } else {
+	acc.GetPremiumRemaningDays(&(player->premiumDays));
+	// }
 
 	acc.GetCoins(&(player->coinBalance));
 	acc.GetTransferableCoins(&(player->coinTransferableBalance));
