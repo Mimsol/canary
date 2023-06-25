@@ -2997,6 +2997,10 @@ Storage = {
 	OnlinePoints = {
 		Gain = 15002,
 	},
+
+	Custom = {
+		LevelReward = 15000,
+	}
 }
 
 GlobalStorage = {
