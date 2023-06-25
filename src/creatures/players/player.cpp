@@ -4415,9 +4415,8 @@ void Player::onEndCondition(ConditionType_t type) {
 		}
 	}
 
-	if (type == condition_outfit && wasmounted) {
-		togglemount(true);
-		wasmounted = false;
+	if (type == CONDITION_OUTFIT && wasMounted) {
+		toggleMount(true);
 	}
 
 	sendIcons();
