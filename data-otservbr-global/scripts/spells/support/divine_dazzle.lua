@@ -40,7 +40,7 @@ local function chain(player, targets, duration)
 			if not synergies.knight and monster:isChallenged() then goto continue end
 
 			local type = creature:getType()
-			if type:getTargetDistance() > 1 or type:getRunHealth() > 0 or sinergies.druid then
+			if type:getTargetDistance() > 1 or type:getRunHealth() > 0 or synergies.druid then
 				table.insert(monsters, creature)
 			end
 
