@@ -136,7 +136,7 @@ function Monster:onDropLoot(corpse)
 			if preyLootPercent > 0 then
 				for i, loot in pairs(monsterLoot) do
 					local item = corpse:createLootItem(monsterLoot[i], charmBonus, preyLootPercent / 100)
-					if item and #item > 0 then
+					if item  then
 						luckExp = luckExp + calculateLuckExp(monsterLoot[i].chance, mType:experience())
 					end
 					if not item then
