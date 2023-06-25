@@ -8,7 +8,7 @@ local function getDiagonalDistance(pos1, pos2)
 	end
 end
 local function chain(player, targets, duration)
-	local party = creature:getParty()
+	local party = player:getParty()
 	local hasSynergy = false
 	if party and party:isSharedExperienceEnabled() then
 		hasSynergy = party:hasDruid()
@@ -35,7 +35,7 @@ local function chain(player, targets, duration)
 				table.insert(monsters, creature)
 			elseif not monster:isChallenged() then
 				table.insert(meleeMonsters, creature)
-			elseif creature:getTarget():getId() ~= player:getId() then
+			elseif not creature:getTarget() or creature:getTarget():getId() ~= player:getId() then
 				table.insert(meleeMonsters, creature)
 			end
 		end
