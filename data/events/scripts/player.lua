@@ -776,7 +776,11 @@ function Player:onGainSkillTries(skill, tries)
 	local vipBoost = configManager.getNumber(configKeys.VIP_BONUS_SKILL)
 	rate = skillOrMagicRate + (skillOrMagicRate * (vipBoost / 100))
 
-	return tries / 100 * (skillOrMagicRate * 100)
+	if self:activeVoucher('skills') then
+		rate = rate * 2
+	end
+
+	return tries / 100 * (rate * 100)
 end
 
 function Player:onRemoveCount(item)
