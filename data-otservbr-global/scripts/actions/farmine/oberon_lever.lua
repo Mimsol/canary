@@ -3,7 +3,7 @@ local setting = {
 	storage = Storage.TheSecretLibrary.TheOrderOfTheFalcon.OberonTimer,
 	Pillar1pos = {x = 33361, y = 31316, z = 9},
 	bossPosition = {x = 33364, y = 31317, z = 9},
-	kickPosition = {x = 33300, y = 31289, z = 9},
+	kickPosition = {x = 33364, y = 31341, z = 9},
 	playerTeleport = {x = 33364, y = 31322, z = 9}
 }
 
@@ -34,6 +34,13 @@ function oberonLever.onUse(creature, item, fromPosition, target, toPosition, isH
 			local player1 = Tile({x = (Position(item:getPosition()).x - 2) + i, y = Position(item:getPosition()).y + 1, z = Position(item:getPosition()).z}):getTopCreature()
 			players[#players+1] = player1
 		end
+		for i, player in ipairs(players) do
+			if player:getStorageValue(setting.storage) > os.time() then
+				creature:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need wait awhile to use the lever again.")
+				return false
+			end
+		end
+
 		for i, player in ipairs(players) do
 			player:getPosition():sendMagicEffect(CONST_ME_POFF)
 			player:teleportTo(Position(setting.playerTeleport), false)
