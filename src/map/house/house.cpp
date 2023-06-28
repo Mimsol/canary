@@ -294,7 +294,8 @@ bool House::getAccessList(uint32_t listId, std::string &list) const {
 }
 
 bool House::isSubowner(const Player* player) {
-	return getHouseAccessLevel(player) < HOUSE_SUBOWNER;
+	auto accessLevel = getHouseAccessLevel(player);
+	return accessLevel >= HOUSE_SUBOWNER;
 }
 
 bool House::isInvited(const Player* player) {
