@@ -897,6 +897,7 @@ class Player final : public Creature, public Cylinder {
 		void onGainSharedExperience(uint64_t gainExp, Creature* target);
 		void onAttackedCreatureBlockHit(BlockType_t blockType) override;
 		void onBlockHit() override;
+		void onTakeDamage(Creature* attacker, int32_t damage) override;
 		void onChangeZone(ZoneType_t zone) override;
 		void onAttackedCreatureChangeZone(ZoneType_t zone) override;
 		void onIdleStatus() override;

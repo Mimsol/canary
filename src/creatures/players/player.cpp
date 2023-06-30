@@ -157,11 +157,11 @@ std::string Player::getDescription(int32_t lookDistance) const {
 		}
 
 		if (loyaltyTitle.length() != 0) {
-			if (sex == PLAYERSEX_FEMALE) {
-				s << " She is a " << loyaltyTitle << ".";
-			} else {
-				s << " He is a " << loyaltyTitle << ".";
+			std::string article = "a";
+			if (loyaltyTitle[0] == 'A' || loyaltyTitle[0] == 'E' || loyaltyTitle[0] == 'I' || loyaltyTitle[0] == 'O' || loyaltyTitle[0] == 'U') {
+				article = "an";
 			}
+			s << " " << pronoun << " " << getSubjectVerb() << " " << article << " " << loyaltyTitle << ".";
 		}
 	}
 
@@ -2422,6 +2422,26 @@ void Player::onBlockHit() {
 			addSkillAdvance(SKILL_DEFENSE, 1);
 		}
 	}
+}
+
+void Player::onTakeDamage(Creature* attacker, int32_t damage) {
+	if (!attacker) {
+		return;
+	}
+	auto monster = attacker->getMonster();
+	if (!monster) {
+		return;
+	}
+	if (monster->isSummon()) {
+		return;
+	}
+	if (monster->getMonsterType()->info.experience < getLevel()) {
+		return;
+	}
+	if (damage < 10) {
+		return;
+	}
+	addSkillAdvance(SKILL_DEXTERITY, damage / 10);
 }
 
 void Player::onAttackedCreatureBlockHit(BlockType_t blockType) {
