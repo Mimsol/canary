@@ -1,5 +1,5 @@
 local config = {
-	enabled = false,
+	enabled = true,
 	checkDuplicateIps = true,
 	showMsgToFree = true,
 	storage = Storage.OnlinePoints.Gain,
