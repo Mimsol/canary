@@ -195,8 +195,8 @@ struct PlayerWheelMethodsBonusData {
 				int damage = 0;
 				int healing = 0;
 		};
-		// value * 100. Example: 1% == 100, NOTE: the "12" is the "COMBAT_COUNT"
-		std::array<uint16_t, 12> resistance = {};
+		// value * 100. Example: 1% == 100, NOTE: the "13" is the "COMBAT_COUNT"
+		std::array<uint16_t, 13> resistance = {};
 
 		// Raw value. Example: 1 == 1
 		struct Skills {
