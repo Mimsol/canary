@@ -4,7 +4,7 @@ local config = {
 		position = Position(33712, 31503, 14)
 	},
 	requiredLevel = 250,
-	timeToFightAgain = 20 * 60 * 60,
+	timeToFightAgain = configManager.getNumber(configKeys.BOSS_COOLDOWN_TIME),
 	timeToDefeatBoss = 20 * 60,
 	playerPositions = {
 		{pos = Position(33739, 31506, 14), teleport = Position(33711, 31510, 14), effect = CONST_ME_TELEPORT},

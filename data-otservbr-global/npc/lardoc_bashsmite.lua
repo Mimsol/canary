@@ -80,7 +80,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		return false
 	end
 
-	local tempo = 20*60*60
+	local tempo = configManager.getNumber(configKeys.BOSS_COOLDOWN_TIME)
 
 	-- missão diremaws
 	if MsgContains(message, "diremaws") and npcHandler:getTopic(playerId) == 1 then

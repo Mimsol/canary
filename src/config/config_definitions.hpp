@@ -247,6 +247,8 @@ enum integerConfig_t {
 	VIP_BONUS_LOOT,
 	VIP_BONUS_SKILL,
 
+	BOSS_COOLDOWN_TIME,
+
 	LAST_INTEGER_CONFIG
 };
 

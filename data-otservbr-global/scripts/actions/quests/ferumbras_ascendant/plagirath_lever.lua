@@ -3,7 +3,7 @@ local config = {
 		name = "Plagirath",
 		position = Position(33172, 31501, 13)
 	},
-	timeToFightAgain = 20 * 60 * 60,
+	timeToFightAgain = configManager.getNumber(configKeys.BOSS_COOLDOWN_TIME),
 	timeToDefeatBoss = 30 * 60,
 	playerPositions = {
 		{ pos = Position(33229, 31500, 13), teleport = Position(33173, 31504, 13), effect = CONST_ME_TELEPORT },

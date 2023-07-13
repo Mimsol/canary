@@ -3,7 +3,7 @@ local config = {
 		name = "Tarbaz",
 		position = Position(33459, 32844, 11)
 	},
-	timeToFightAgain = 20 * 60 * 60,
+	timeToFightAgain = configManager.getNumber(configKeys.BOSS_COOLDOWN_TIME),
 	timeToDefeatBoss = 30 * 60,
 	playerPositions = {
 		{ pos = Position(33418, 32849, 11), teleport = Position(33459, 32848, 11), effect = CONST_ME_TELEPORT },

@@ -9,7 +9,7 @@ local config = {
 		['Sunday'] = 'Alptramun'
 	},
 	requiredLevel = 250,
-	timeToFightAgain = 20, -- In hour
+	timeToFightAgain = 10, -- In hour
 	timeToDefeatBoss = 20, -- In minutes
 	playerPositions = {
 		{pos = Position(32208, 32021, 13), teleport = Position(32207, 32041, 14), effect = CONST_ME_TELEPORT},

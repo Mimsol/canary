@@ -3,7 +3,7 @@ local config = {
 		name = "Razzagorn",
 		position = Position(33422, 32467, 14)
 	},
-	timeToFightAgain = 20 * 60 * 60,
+	timeToFightAgain = configManager.getNumber(configKeys.BOSS_COOLDOWN_TIME),
 	timeToDefeatBoss = 30 * 60,
 	playerPositions = {
 		{ pos = Position(33386, 32455, 14), teleport = Position(33419, 32467, 14), effect = CONST_ME_TELEPORT },

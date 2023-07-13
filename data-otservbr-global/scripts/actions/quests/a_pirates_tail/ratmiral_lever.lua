@@ -1,7 +1,6 @@
 local config = {
 	bossName = "Ratmiral Blackwhiskers",
 	requiredLevel = 250,
-	timeToFightAgain = 20, -- In hour
 	timeToDefeatBoss = 20, -- In minutes
 	playerPositions = {
 		{pos = Position(33893, 31388, 15), teleport = Position(33904, 31356, 14), effect = CONST_ME_TELEPORT},
@@ -49,7 +48,7 @@ function ratmiralLever.onUse(player, item, fromPosition, target, toPosition, isH
 			for _, v in pairs(info) do
 				local newPlayer = v.creature
 				if newPlayer then
-					newPlayer:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You or a member in your team have to wait " .. config.timeToFightAgain .. " hours to face ".. config.bossName .. " again!")
+					newPlayer:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You or a member in your team have to wait " .. configManager.getNumber(configKeys.BOSS_COOLDOWN_TIME) / 3600 .. " hours to face ".. config.bossName .. " again!")
 					if newPlayer:getStorageValue(config.storage) > os.time() then
 						newPlayer:getPosition():sendMagicEffect(CONST_ME_POFF)
 					end
@@ -67,7 +66,7 @@ function ratmiralLever.onUse(player, item, fromPosition, target, toPosition, isH
 			return true
 		end
 		lever:teleportPlayers()
-		lever:setStorageAllPlayers(config.storage, os.time() + config.timeToFightAgain * 3600)
+		lever:setStorageAllPlayers(config.storage, os.time() + configManager.getNumber(configKeys.BOSS_COOLDOWN_TIME))
 		addEvent(function()
 			local old_players = lever:getInfoPositions()
 			spec:clearCreaturesCache()

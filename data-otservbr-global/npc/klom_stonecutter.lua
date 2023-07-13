@@ -95,7 +95,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		return false
 	end
 
-	local time = 20*60*60
+	local time = configManager.getNumber(configKeys.BOSS_COOLDOWN_TIME)
 
 	-- missão subterraneans
 	if MsgContains(message, "subterraneans") and npcHandler:getTopic(playerId) == 1 then

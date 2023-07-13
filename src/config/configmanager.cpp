@@ -372,6 +372,8 @@ bool ConfigManager::load() {
 	integer[T_CONST] = getGlobalNumber(L, "temporaryConst", 2);
 	integer[PARALLELISM] = getGlobalNumber(L, "parallelism", 2);
 
+	integer[BOSS_COOLDOWN_TIME] = getGlobalNumber(L, "bossCooldownTime", 20 * 60 * 60);
+
 	loaded = true;
 	lua_close(L);
 	return true;

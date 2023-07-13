@@ -213,6 +213,12 @@ void ConfigFunctions::init(lua_State* L) {
 	registerEnumIn(L, "configKeys", HAZARD_PODS_DAMAGE);
 	registerEnumIn(L, "configKeys", TOGGLE_HAZARDSYSTEM);
 	registerEnumIn(L, "configKeys", LOW_LEVEL_BONUS_EXP);
+
+	registerEnumIn(L, "configKeys", BOSS_COOLDOWN_TIME);
+	registerEnumIn(L, "configKeys", VIP_BONUS_EXP);
+	registerEnumIn(L, "configKeys", VIP_BONUS_SKILL);
+	registerEnumIn(L, "configKeys", VIP_BONUS_LOOT);
+
 	registerEnumIn(L, "configKeys", LOYALTY_ENABLED);
 	registerEnumIn(L, "configKeys", LOYALTY_POINTS_PER_CREATION_DAY);
 	registerEnumIn(L, "configKeys", LOYALTY_POINTS_PER_PREMIUM_DAY_SPENT);

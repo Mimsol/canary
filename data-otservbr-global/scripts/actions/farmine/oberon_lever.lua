@@ -45,7 +45,7 @@ function oberonLever.onUse(creature, item, fromPosition, target, toPosition, isH
 			player:getPosition():sendMagicEffect(CONST_ME_POFF)
 			player:teleportTo(Position(setting.playerTeleport), false)
 			doSendMagicEffect(player:getPosition(), CONST_ME_TELEPORT)
-			setPlayerStorageValue(player,setting.storage, os.time() + 20 * 60 * 60)
+			setPlayerStorageValue(player,setting.storage, os.time() + configManager.getNumber(configKeys.BOSS_COOLDOWN_TIME))
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You have 20 minute(s) to defeat the boss.')
 			addEvent(function(cid)
 				local playerToRemove = Player(cid)
