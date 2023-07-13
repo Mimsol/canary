@@ -2989,6 +2989,14 @@ Storage = {
 			LastActivatedAt = 64039,
 		},
 	},
+
+	VipSystem = {
+		IsVip = 15001,
+	},
+
+	OnlinePoints = {
+		Gain = 15002,
+	},
 }
 
 GlobalStorage = {

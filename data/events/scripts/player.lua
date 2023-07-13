@@ -716,6 +716,13 @@ function Player:onGainExperience(target, exp, rawExp)
 		end
 	end
 
+	if configManager.getBoolean(configKeys.VIP_SYSTEM_ENABLED) then
+		local vipBonusExp = configManager.getNumber(configKeys.VIP_BONUS_EXP)
+		if (vipBonusExp > 0 and self:isVip()) then
+			exp = exp * (1 + (vipBonusExp / 100))
+		end
+	end
+
 	local lowLevelBonuxExp = self:getFinalLowLevelBonus()
 	local baseRate = self:getFinalBaseRateExperience()
 
@@ -754,11 +761,24 @@ function Player:onGainSkillTries(skill, tries)
 		RATE_DEFAULT = configManager.getNumber(configKeys.RATE_MAGIC)
 	end
 
+	if(skill == SKILL_LUCK) then -- luck
+		if configManager.getBoolean(configKeys.RATE_USE_STAGES) then
+			STAGES_DEFAULT = luckStages
+		else
+			STAGES_DEFAULT = nil
+		end
+		SKILL_DEFAULT = self:getSkillLevel(skill)
+		RATE_DEFAULT = configManager.getNumber(configKeys.RATE_SKILL)
+	end
+
 	skillOrMagicRate = getRateFromTable(STAGES_DEFAULT, SKILL_DEFAULT, RATE_DEFAULT)
 
 	if SCHEDULE_SKILL_RATE ~= 100 then
 		skillOrMagicRate = math.max(0, (skillOrMagicRate * SCHEDULE_SKILL_RATE) / 100)
 	end
+
+	local vipBoost = configManager.getNumber(configKeys.VIP_BONUS_SKILL)
+	rate = skillOrMagicRate + (skillOrMagicRate * (vipBoost / 100))
 
 	return tries / 100 * (skillOrMagicRate * 100)
 end
