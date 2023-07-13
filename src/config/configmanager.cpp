@@ -291,6 +291,10 @@ bool ConfigManager::load() {
 	floating[RATE_BOSS_ATTACK] = getGlobalFloat(L, "rateBossAttack", 1.0);
 	floating[RATE_BOSS_DEFENSE] = getGlobalFloat(L, "rateBossDefense", 1.0);
 
+	integer[MIN_ELEMENTAL_RESISTANCE] = getGlobalNumber(L, "minElementalResistance", -200);
+	integer[MAX_ELEMENTAL_RESISTANCE] = getGlobalNumber(L, "maxElementalResistance", 200);
+	integer[MAX_DAMAGE_REFLECTION] = getGlobalNumber(L, "maxDamageReflection", 200);
+
 	floating[RATE_NPC_HEALTH] = getGlobalFloat(L, "rateNpcHealth", 1.0);
 	floating[RATE_NPC_ATTACK] = getGlobalFloat(L, "rateNpcAttack", 1.0);
 	floating[RATE_NPC_DEFENSE] = getGlobalFloat(L, "rateNpcDefense", 1.0);

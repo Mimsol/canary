@@ -468,19 +468,22 @@ registerMonsterType.loot = function(mtype, mask)
 	end
 end
 registerMonsterType.elements = function(mtype, mask)
+	local min = configManager.getNumber(configKeys.MIN_ELEMENTAL_RESISTANCE)
+	local max = configManager.getNumber(configKeys.MAX_ELEMENTAL_RESISTANCE)
 	if type(mask.elements) == "table" then
 		for _, element in pairs(mask.elements) do
 			if element.type and element.percent then
-				mtype:addElement(element.type, element.percent)
+				mtype:addElement(element.type, math.max(math.min(element.percent, min), max))
 			end
 		end
 	end
 end
 registerMonsterType.reflects = function(mtype, mask)
+	local max = configManager.getNumber(configKeys.MAX_DAMAGE_REFLECTION)
 	if type(mask.reflects) == "table" then
 		for _, reflect in pairs(mask.reflects) do
 			if reflect.type and reflect.percent then
-				mtype:addReflect(reflect.type, reflect.percent)
+				mtype:addReflect(reflect.type, math.max(reflect.percent, max))
 			end
 		end
 	end
