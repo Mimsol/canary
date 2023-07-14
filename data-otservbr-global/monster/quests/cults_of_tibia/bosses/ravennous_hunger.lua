@@ -26,7 +26,7 @@ monster.changeTarget = {
 }
 
 monster.bosstiary = {
-	bossRaceId = 1427,
+	bossRaceId = 1801,
 	bossRace = RARITY_ARCHFOE,
 	storageCooldown = Storage.CultsOfTibia.Barkless.BossTimer
 }

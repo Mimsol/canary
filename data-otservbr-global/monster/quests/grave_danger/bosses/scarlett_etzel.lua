@@ -26,7 +26,7 @@ monster.changeTarget = {
 }
 
 monster.bosstiary = {
-	bossRaceId = 1801, -- or 1804 need test
+	bossRaceId = 1804,
 	bossRace = RARITY_ARCHFOE,
 	storageCooldown = Storage.GraveDanger.CobraBastion.ScarlettTimer
 }
