@@ -43,7 +43,7 @@ function Monster:onDropLoot(corpse)
 			end
 		end
 
-		local participants = nil
+		local participants = {}
 		local modifier = 1
 		local vipBoost = 0
 
