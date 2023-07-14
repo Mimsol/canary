@@ -345,6 +345,8 @@ local questTable = {
 	{storage = Storage.Quest.U13_10.CradleOfMonsters.Access.LowerIngol, storageValue = 1},
 	{storage = Storage.Quest.U13_10.CradleOfMonsters.Access.Monster, storageValue = 1},
 	{storage = Storage.Quest.U13_10.CradleOfMonsters.Access.MutatedAbomination, storageValue = 1},
+
+	{storage = Storage.BarbarianTest.Questline, storageValue = 8},
 }
 
 local function playerFreeQuestStart(playerId, index)
