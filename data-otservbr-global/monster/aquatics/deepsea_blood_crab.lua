@@ -23,7 +23,7 @@ monster.Bestiary = {
 	CharmsPoints = 15,
 	Stars = 2,
 	Occurrence = 0,
-	Locations = "Svargrond Sea Serpent Area, Drefia Mapper Coords128.200126.19684texthere. There is also one under Rookgaard Academy, however it is unreachable."
+	Locations = "Svargrond Sea Serpent Area, Drefia. There is also one under Rookgaard Academy, however it is unreachable."
 }
 
 monster.health = 320
