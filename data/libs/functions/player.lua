@@ -432,7 +432,7 @@ function Player:CreateFamiliarSpell()
 	playerPosition:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 	myFamiliar:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	-- Divide by 2 to get half the time (the default total time is 30 / 2 = 15)
-	local summonDuration = configManager.getNumber(configKeys.FAMILIAR_TIME) / 2
+	local summonDuration = configManager.getNumber(configKeys.FAMILIAR_TIME)
 	self:setStorageValue(Global.Storage.FamiliarSummon, os.time() + summonDuration * 60)
 	addEvent(RemoveFamiliar, summonDuration * 60 * 1000, myFamiliar:getId(), self:getId())
 	for sendMessage = 1, #FAMILIAR_TIMER do

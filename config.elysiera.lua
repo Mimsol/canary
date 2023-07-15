@@ -150,7 +150,7 @@ tibiadromeConcoctionTickType = "experience" -- "online" | "experience"
 -- Familiar system
 -- NOTE: the time will be divided by 2 to get half the value, the familiar lasts 15 minutes by default and the cooldown of the spell is 30 minutes
 -- Only change it here if you know what you are doing or to make testing easier with familiars
-familiarTime = 30
+familiarTime = 15
 
 -- NOTE: Access only for Premium Account
 onlyPremiumAccount = false
