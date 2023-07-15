@@ -348,6 +348,8 @@ local questTable = {
 	{storage = Storage.Quest.U13_10.CradleOfMonsters.Access.MutatedAbomination, storageValue = 1},
 
 	{storage = Storage.BarbarianTest.Questline, storageValue = 8},
+
+	{storage = Storage.Quest.U8_54.TheNewFrontier.SnakeHeadTeleport, storageValue = 1},
 }
 
 -- from Position: (33201, 31762, 1)
