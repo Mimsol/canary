@@ -1487,10 +1487,16 @@ function GameStore.processCharmsPurchase(player)
 end
 
 function GameStore.processPremiumPurchase(player, offerId)
+	local inPz =  player:getTile():hasFlag(TILESTATE_PROTECTIONZONE)
+	local inFight = player:isPzLocked() or player:getCondition(CONDITION_INFIGHT, CONDITIONID_DEFAULT)
+	if not inPz and inFight then
+		return error({code = 0, message = "You can't purchase VIP while in a fight!"})
+	end
 	player:addPremiumDays(offerId - 3000)
 	if configManager.getBoolean(configKeys.VIP_SYSTEM_ENABLED) then
 		player:onAddVip(offerId - 3000)
 	end
+	player:remove()
 end
 
 function GameStore.processStackablePurchase(player, offerId, offerCount, offerName, moveable)
@@ -1702,7 +1708,9 @@ function GameStore.processPreyBonusReroll(player, offerCount)
 end
 
 function GameStore.processTempleTeleportPurchase(player)
-	if player:getCondition(CONDITION_INFIGHT, CONDITIONID_DEFAULT) or player:isPzLocked() then
+	local inPz =  player:getTile():hasFlag(TILESTATE_PROTECTIONZONE)
+	local inFight = player:isPzLocked() or player:getCondition(CONDITION_INFIGHT, CONDITIONID_DEFAULT)
+	if not inPz and inFight then
 		return error({code = 0, message = "You can't use temple teleport in fight!"})
 	end
 
