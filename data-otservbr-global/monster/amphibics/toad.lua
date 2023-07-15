@@ -22,7 +22,7 @@ monster.Bestiary = {
 	SecondUnlock = 250,
 	CharmsPoints = 15,
 	Stars = 2,
-	Occurence = 0,
+	Occurrence = 0,
 	Locations = "The Laguna Islands, Arena and Zoo Quarter, TiquandaTarantula Caves, Shadowthorn Bog God Temple, Northern Zao Plantations, Northern Brimstone Bug CavesBrimstone Bug Cave, Tainted Caves."
 }
 

@@ -22,7 +22,7 @@ monster.Bestiary = {
 	SecondUnlock = 250,
 	CharmsPoints = 15,
 	Stars = 2,
-	Occurence = 0,
+	Occurrence = 0,
 	Locations = "Orc Fort, the Orc Peninsula, Magician Tower and northwest tower or south underground of Thais, Zao steppe encaged, Vengoth."
 }
 

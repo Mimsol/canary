@@ -22,7 +22,7 @@ monster.Bestiary = {
 	SecondUnlock = 500,
 	CharmsPoints = 25,
 	Stars = 3,
-	Occurence = 0,
+	Occurrence = 0,
 	Locations = "Nargor, Trade Quarter, Foreigner Quarter Dock, Krailos Steppe During a World Change."
 }
 

@@ -22,7 +22,7 @@ monster.Bestiary = {
 	SecondUnlock = 250,
 	CharmsPoints = 15,
 	Stars = 2,
-	Occurence = 0,
+	Occurrence = 0,
 	Locations = "Laguna Islands, Fenrock, Port Hope and also can be found behind a wall below the center of Liberty Bay. These cannot be reached."
 }
 

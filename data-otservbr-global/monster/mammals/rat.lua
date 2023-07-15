@@ -22,7 +22,7 @@ monster.Bestiary = {
 	SecondUnlock = 100,
 	CharmsPoints = 5,
 	Stars = 1,
-	Occurence = 0,
+	Occurrence = 0,
 	Locations = "Rookgaard and Mainland, in most sewers and caves near towns. They can be found almost everywhere in Tibia."
 }
 

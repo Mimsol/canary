@@ -22,7 +22,7 @@ monster.Bestiary = {
 	SecondUnlock = 1000,
 	CharmsPoints = 50,
 	Stars = 4,
-	Occurence = 0,
+	Occurrence = 0,
 	Locations = "Kilmaresh, south of Issavi."
 }
 

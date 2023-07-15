@@ -22,7 +22,7 @@ monster.Bestiary = {
 	SecondUnlock = 100,
 	CharmsPoints = 5,
 	Stars = 1,
-	Occurence = 0,
+	Occurrence = 0,
 	Locations = "In Rookgaard Sheep field, Greenshore and other farms like the one in Thais, east of Carlin. They can also be found wandering the fields of Edron, and some can be found along with a Black Sheep with the Hunter in Femor Hills."
 }
 

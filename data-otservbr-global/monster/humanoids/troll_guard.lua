@@ -22,7 +22,7 @@ monster.Bestiary = {
 	SecondUnlock = 250,
 	CharmsPoints = 15,
 	Stars = 2,
-	Occurence = 3,
+	Occurrence = 3,
 	Locations = "Rookgaards central cave in the Mapper Coords125.64125.136104textnew western Troll tunnel, north-west of Carlin during raids and Thais Knights Guild arena during raids on Kingsday Mini World ChangeKingsday."
 }
 

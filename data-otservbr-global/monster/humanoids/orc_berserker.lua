@@ -22,7 +22,7 @@ monster.Bestiary = {
 	SecondUnlock = 500,
 	CharmsPoints = 25,
 	Stars = 3,
-	Occurence = 0,
+	Occurrence = 0,
 	Locations = "Orc Fort, Dwacatra, Orc Peninsula, Elvenbane, Edron Orc Cave, Plains of Havoc, below Point of No Return in Outlaw Camp, Maze of Lost Souls, Cyclopolis, Desert Dungeon, Ancient Temple, Foreigner Quarter, Zao Orc Land."
 }
 
