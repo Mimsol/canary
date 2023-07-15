@@ -22,7 +22,7 @@ monster.Bestiary = {
 	SecondUnlock = 10,
 	CharmsPoints = 1,
 	Stars = 0,
-	Occurrence = 1,
+	Occurence = 1,
 	Locations = "Svargrond and Nibelor."
 }
 
