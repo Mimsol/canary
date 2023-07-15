@@ -92,6 +92,12 @@ function Monster:onDropLoot(corpse)
 		end
 		vipBoost = vipBoost / ((#participants) ^ 0.5)
 
+		for i = 1, #participants do
+			local participant = participants[i]
+			luckBoost = luckBoost + participant:getLuckLootBoost()
+		end
+		luckBoost = luckBoost / ((#participants) ^ 0.5)
+
 		for i = 1, #monsterLoot do
 			local item = corpse:createLootItem(monsterLoot[i], charmBonus, 1 + vipBoost + luckBoost)
 			if item then
