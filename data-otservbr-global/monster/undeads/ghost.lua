@@ -23,17 +23,15 @@ monster.Bestiary = {
 	CharmsPoints = 15,
 	Stars = 2,
 	Occurrence = 0,
-	Locations = "Ghost Ship, Drefia, Ankrahmun Tombs, Mount Sternum Undead Cave between Thais and Kazordoon, \z
-		Dark Cathedral, under Treasure Island, Isle of the Kings, Grothmok tunnels (in Dwarven Mines), Goroma, \z
-		Ramoa, Lich Hell, Upper Spike."
-	}
+	Locations = "Ghost Ship, Drefia, Ankrahmun Tombs, Mount Sternum Undead Cave between Thais and Kazordoon, Dark Cathedral, under Treasure Island, Isle of the Kings, Grothmok tunnels in Dwarven Mines, Goroma, Ramoa, Lich Hell, Upper Spike."
+}
 
 monster.health = 150
 monster.maxHealth = 150
 monster.race = "undead"
 monster.corpse = 5993
 monster.speed = 80
-monster.manaCost = 100
+monster.manaCost = 0
 
 monster.changeTarget = {
 	interval = 4000,
@@ -61,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -74,7 +72,7 @@ monster.voices = {
 	chance = 10,
 	{text = "Huh!", yell = false},
 	{text = "Shhhhhh", yell = false},
-	{text = "Buuuuuh", yell = false}
+	{text = "Buuuuuh", yell = false},
 }
 
 monster.loot = {
@@ -89,6 +87,11 @@ monster.loot = {
 	{name = "ghostly tissue", chance = 1870}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -80},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -20, maxDamage = -45, range = ?, effect = <>, target = ?}, --[[Life Drain]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -80},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -20, maxDamage = -45, range = 1, effect = CONST_ME_MAGIC_RED, target = false}
@@ -96,7 +99,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 5,
-	armor = 10
+	armor = 10,
+	mitigation = 0.51,
 }
 
 monster.elements = {
@@ -108,8 +112,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

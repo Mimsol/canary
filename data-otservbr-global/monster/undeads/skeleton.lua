@@ -23,10 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 15,
 	Stars = 2,
 	Occurrence = 0,
-	Locations = "In many dungeons around Tibia, like the Ancient Temple and Ghostlands. \z
-		Also found in Rookgaard tombs and north east of Port Hope, in the jungle of Tiquanda, \z
-		beneath Fenrock and in the desert Tombs, Vengoth Castle."
-	}
+	Locations = "In many dungeons around Tibia, like the Ancient Temple and Ghostlands. Also found in Rookgaard tombs and north east of Port Hope, in the jungle of Tiquanda, beneath Fenrock and in the desert Tombs, VengothVengoth Castle."
+}
 
 monster.health = 50
 monster.maxHealth = 50
@@ -61,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -88,6 +86,11 @@ monster.loot = {
 	{id = 23986, chance = 1000} -- heavy old tome
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -17},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -7, maxDamage = -13, range = ?, effect = <>, target = ?}, --[[Life Drain]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -20},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -7, maxDamage = -13, range = 1, target = false}
@@ -95,7 +98,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 10,
-	armor = 10
+	armor = 2,
+	mitigation = 0.23,
 }
 
 monster.elements = {
@@ -107,8 +111,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -25},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -25},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {
