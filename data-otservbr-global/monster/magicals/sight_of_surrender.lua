@@ -23,9 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 50,
 	Stars = 4,
 	Occurrence = 0,
-	Locations = "Dark Grounds, Guzzlemaw Valley (if less than 100 Blowing Horns tasks \z
-		have been done the day before) and the Silencer Plateau (when Silencer Resonating Chambers are used there)."
-	}
+	Locations = "Dark Grounds, Guzzlemaw Valley if less than 100 Roshamuul QuestSpoilerBlowing HornsBlowing Horns tasks have been done the day before, httpstibia.fandom.comwikiMappercoords131.71-126.229-7-2-1-0mark1131.2-126.200-7-9mark2130.234-126.219-7-9mark3131.58-126.206-7-9mark4131.67-126.232-7-9mark5131.99-126.211-7-9mark6131.117-126.219-7-9mark7131.101-127.32-7-9mark8131.146-127.18-7-9 spawn locations and the Silencer Plateau when Silencer Resonating Chambers are used there."
+}
 
 monster.health = 28000
 monster.maxHealth = 28000
@@ -63,21 +62,21 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "BOW LOW!", yell = false},
-	{text = "FEEL THE TRUE MEANING OF VANQUISH!", yell = false},
-	{text = "HAHAHAHA DO YOU WANT TO AMUSE YOUR MASTER?", yell = false},
-	{text = "NOW YOU WILL SURRENDER!", yell = false}
+	{text = "BOW LOW!", yell = true},
+	{text = "FEEL THE TRUE MEANING OF VANQUISH!", yell = true},
+	{text = "HAHAHAHA DO YOU WANT TO AMUSE YOUR MASTER?", yell = true},
+	{text = "NOW YOU WILL SURRENDER!", yell = true},
 }
 
 monster.loot = {
@@ -108,6 +107,14 @@ monster.loot = {
 	{id = 20208, chance = 460} -- string of mending
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -1100},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -500, maxDamage = -700, range = ?, effect = <>, target = ?}, --Yellow Sparks [[Energy Beam]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -500, range = ?, effect = <>, target = ?}, --[[Distance Fighting|Stone Projectile]]
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 800, maxDamage = 1200
+  },
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1100},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -500, maxDamage = -800, length = 8, spread = 3, effect = CONST_ME_YELLOWENERGY, target = true},
@@ -116,7 +123,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 70,
-	armor = 70,
+	armor = 92,
+	mitigation = 2.31,
 	{name ="combat", interval = 2000, chance = 30, type = COMBAT_HEALING, minDamage = 550, maxDamage = 1100, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 2000, chance = 15, speedChange = 520, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }
@@ -130,8 +138,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 40},
-	{type = COMBAT_HOLYDAMAGE , percent = -5},
-	{type = COMBAT_DEATHDAMAGE , percent = 20}
+	{type = COMBAT_HOLYDAMAGE, percent = -5},
+	{type = COMBAT_DEATHDAMAGE, percent = 20},
 }
 
 monster.immunities = {

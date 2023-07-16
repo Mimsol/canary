@@ -17,14 +17,14 @@ monster.raceId = 698
 monster.Bestiary = {
 	class = "Magical",
 	race = BESTY_RACE_MAGICAL,
-	toKill = 5,
-	FirstUnlock = 2,
-	SecondUnlock = 3,
-	CharmsPoints = 50,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 3,
-	Locations = "Tiquanda."
-	}
+	Locations = "Tiquanda around Mapper Coords128.118127.21071texthere, Mapper Coords128.63127.19571texthere and Mapper Coords128.86127.23371texthere."
+}
 
 monster.health = 1200
 monster.maxHealth = 1200
@@ -58,22 +58,22 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = true,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Groooooooar", yell = false},
-	{text = "MEOW", yell = false},
+	{text = "MEOW", yell = true},
 	{text = "Groarrrrrrrr", yell = false},
-	{text = "Purrrrrrr", yell = false}
+	{text = "Purrrrrrr", yell = false},
 }
 
 monster.loot = {
@@ -84,6 +84,13 @@ monster.loot = {
 	{name = "panther paw", chance = 100000}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -90?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -0, maxDamage = -215?, range = ?, effect = <>, target = ?}, --[[Energy Strike]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --[[Invisibility]]
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 50+, maxDamage = 50+},
+--}
 monster.attacks = {
 	{name ="melee", interval = 1500, chance = 100, minDamage = 0, maxDamage = -90},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -75, maxDamage = -215, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYAREA, target = false}
@@ -92,6 +99,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 30,
 	armor = 30,
+	mitigation = 0.99,
 	{name ="speed", interval = 2000, chance = 15, speedChange = 370, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 50, maxDamage = 125, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="invisible", interval = 2000, chance = 15, effect = CONST_ME_MAGIC_BLUE}
@@ -106,8 +114,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = -5}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = -5},
 }
 
 monster.immunities = {
