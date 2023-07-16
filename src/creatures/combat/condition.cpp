@@ -603,7 +603,6 @@ void ConditionAttributes::updateAbsorbs(Creature* creature) const {
 		if (value == 0) {
 			continue;
 		}
-		spdlog::info("ConditionAttributes::updateAbsorbs: {} {}", i, value);
 		creature->setAbsorbPercent(indexToCombatType(i), value);
 	}
 }
