@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Orcus the Cruel")
 local monster = {}
 
-monster.description = "Orcus the cruel"
+monster.description = "a Orcus the cruel"
 monster.experience = 280
 monster.outfit = {
 	lookType = 59,
@@ -12,6 +12,8 @@ monster.outfit = {
 	lookAddons = 0,
 	lookMount = 0
 }
+
+monster.raceId = 349
 
 monster.health = 480
 monster.maxHealth = 480
@@ -48,23 +50,30 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
+	{text = "Ocrus will rule!", yell = false},
+	{text = "I'll kill you slow and painful.", yell = false},
 }
 
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -180+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -70, range = ?, effect = <>, target = ?}, --Throws [[Throwing Knife|Knives]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -180},
 	{name ="combat", interval = 2000, chance = 40, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -70, range = 5, radius = 1, shootEffect = CONST_ANI_THROWINGKNIFE, target = true}
@@ -73,6 +82,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 40,
 	armor = 39
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -84,12 +94,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = true},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

@@ -1,7 +1,7 @@
-local mType = Game.createMonsterType("Colerian The Barbarian")
+local mType = Game.createMonsterType("Colerian the Barbarian")
 local monster = {}
 
-monster.description = "Colerian the Barbarian"
+monster.description = "a Colerian the Barbarian"
 monster.experience = 90
 monster.outfit = {
 	lookType = 253,
@@ -12,6 +12,8 @@ monster.outfit = {
 	lookAddons = 0,
 	lookMount = 0
 }
+
+monster.raceId = 344
 
 monster.health = 265
 monster.maxHealth = 265
@@ -49,12 +51,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -62,12 +64,17 @@ monster.voices = {
 	chance = 10,
 	{text = "Flee, coward!", yell = false},
 	{text = "You will lose!", yell = false},
-	{text = "Yeehaawh", yell = false}
+	{text = "Yeehaawh", yell = false},
 }
 
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -60},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -40, range = ?, effect = <>, target = ?}, --Bloody [[Bolt]]s
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -60},
 	{name ="combat", interval = 1000, chance = 80, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -40, range = 5, radius = 1, shootEffect = CONST_ANI_PIERCINGBOLT, target = true}
@@ -75,7 +82,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 0,
-	armor = 8
+	armor = 8,
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -87,12 +95,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

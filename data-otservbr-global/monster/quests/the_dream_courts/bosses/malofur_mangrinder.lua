@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Malofur Mangrinder")
 local monster = {}
 
 monster.description = "Malofur Mangrinder"
-monster.experience = 55000
+monster.experience = ?
 monster.outfit = {
 	lookType = 1120,
 	lookHead = 0,
@@ -13,8 +13,13 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 200000
-monster.maxHealth = 200000
+monster.bosstiary = {
+	bossRaceId = 1696,
+	bossRace = RARITY_NEMESIS,
+}
+
+monster.health = ?
+monster.maxHealth = ?
 monster.race = "blood"
 monster.corpse = 30017
 monster.speed = 125
@@ -23,11 +28,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 4000,
 	chance = 10
-}
-
-monster.bosstiary = {
-	bossRaceId = 1696,
-	bossRace = RARITY_NEMESIS
 }
 
 monster.strategiesTarget = {
@@ -52,23 +52,23 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "RAAAARGH! I'M MASHING YE TO DUST BOOM!", yell = false},
-	{text = "BOOOM!", yell = false},
-	{text = "BOOOOM!!!", yell = false},
-	{text = "BOOOOOM!!!", yell = false}
+	{text = "RAAAARGH! I'M MASHING YE TO DUST BOOM!", yell = true},
+	{text = "BOOOM!", yell = true},
+	{text = "BOOOOM!!!", yell = true},
+	{text = "BOOOOOM!!!", yell = true},
 }
 
 monster.loot = {
@@ -97,6 +97,9 @@ monster.loot = {
 	{name = "pomegranate", chance = 50000}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -5}
 }
@@ -104,19 +107,20 @@ monster.attacks = {
 monster.defenses = {
 	defense = 20,
 	armor = 20
+--	mitigation = ???,
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 5},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 20},
+	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
