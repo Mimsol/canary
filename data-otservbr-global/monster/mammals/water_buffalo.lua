@@ -17,15 +17,14 @@ monster.raceId = 872
 monster.Bestiary = {
 	class = "Mammal",
 	race = BESTY_RACE_MAMMAL,
-	toKill = 5,
-	FirstUnlock = 2,
-	SecondUnlock = 3,
-	CharmsPoints = 30,
+	toKill = 500,
+	FirstUnlock = 25,
+	SecondUnlock = 250,
+	CharmsPoints = 15,
 	Stars = 2,
 	Occurrence = 3,
-	Locations = "It raids every four hours, starting at server save, in groups of one to three at \z
-		various places around Venore swamp, especially near the southern production site."
-	}
+	Locations = "It raids every four hours, starting at server save, in groups of one to three at various places around Venore swamp, especially near the southern production site. Some sightings have been Mapper Coords128.96125.14374texthere, Mapper Coords128.108125.20174texthere, Mapper Coords128.123125.23674texthere, Mapper Coords128.183126.574texthere, Mapper Coords128.193125.22474texthere, Mapper Coords128.52125.17177texthere, Mapper Coords129.69125.7677texthere, and Mapper Coords129.38125.14377texthere."
+}
 
 monster.health = 390
 monster.maxHealth = 390
@@ -51,7 +50,7 @@ monster.flags = {
 	pushable = true,
 	rewardBoss = false,
 	illusionable = false,
-	canPushItems = true,
+	canPushItems = false,
 	canPushCreatures = true,
 	staticAttackChance = 80,
 	targetDistance = 1,
@@ -60,21 +59,21 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Gnorrr!", yell = false},
 	{text = "Gnarrr!", yell = false},
+	{text = "Gnoorr!", yell = false},
+	{text = "Mrrr!", yell = false},
 	{text = "<snort>", yell = false},
-	{text = "Mrrr!", yell = false}
 }
 
 monster.loot = {
@@ -83,13 +82,18 @@ monster.loot = {
 	{name = "ham", chance = 39200, maxCount = 3}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -40+},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -30}
 }
 
 monster.defenses = {
 	defense = 5,
-	armor = 10
+	armor = 35,
+	mitigation = 1.04,
 }
 
 monster.elements = {
@@ -101,14 +105,14 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = true},
+	{type = "paralyze", condition = false},
 	{type = "outfit", condition = false},
-	{type = "invisible", condition = true},
+	{type = "invisible", condition = false},
 	{type = "bleed", condition = false}
 }
 

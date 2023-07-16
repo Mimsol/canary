@@ -23,10 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 5,
 	Stars = 1,
 	Occurrence = 0,
-	Locations = "Almost everywhere in tibia, they seem to have a nest-like place in Greenshore, \z
-		a semi-large spawn at the entrance to the Port Hope troll cave and in cave near Ankrahmun ship. \z
-		Also appears in Rat Plague in Thais and Rat Plague in Rookgaard."
-	}
+	Locations = "Almost everywhere in tibia, they seem to have a nest-like place in Greenshore, a semi-large spawn at the entrance to the Port Hope troll cave and in cave near Ankrahmun ship. Also appears in Thais RaidsRat Plague in ThaisRat Plague in Thais and Rookgaard RaidsRat Plague in RookgaardRat Plague in Rookgaard."
+}
 
 monster.health = 30
 monster.maxHealth = 30
@@ -61,19 +59,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
+	{text = "Meep!", yell = false},
 	{text = "Meeeeep!", yell = false},
-	{text = "Meep!", yell = false}
 }
 
 monster.loot = {
@@ -83,13 +81,18 @@ monster.loot = {
 	{name = "worm", chance = 9700, maxCount = 2}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -10},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -10}
 }
 
 monster.defenses = {
 	defense = 5,
-	armor = 5
+	armor = 1,
+	mitigation = 0.10,
 }
 
 monster.elements = {
@@ -101,8 +104,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

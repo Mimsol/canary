@@ -23,9 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 15,
 	Stars = 2,
 	Occurrence = 0,
-	Locations = "East of Port Hope close to Grizzly Adams, deep in the jungle, \z
-		Arena and Zoo Quarter, Mammoth Shearing Factory."
-	}
+	Locations = "East of Port Hope close to Grizzly Adams and also in this area Mapper Coords128.208127.19273texthere, deep in the jungle, Arena and Zoo Quarter, Mammoth Shearing Factory."
+}
 
 monster.health = 320
 monster.maxHealth = 320
@@ -61,12 +60,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -74,7 +73,7 @@ monster.voices = {
 	chance = 10,
 	{text = "Hooooot-Toooooot!", yell = false},
 	{text = "Tooooot!", yell = false},
-	{text = "Trooooot!", yell = false}
+	{text = "Trooooot!", yell = false},
 }
 
 monster.loot = {
@@ -84,13 +83,18 @@ monster.loot = {
 	{name = "tusk shield", chance = 140}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -100},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100}
 }
 
 monster.defenses = {
 	defense = 25,
-	armor = 25
+	armor = 20,
+	mitigation = 0.41,
 }
 
 monster.elements = {
@@ -102,8 +106,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

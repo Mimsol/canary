@@ -23,9 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 5,
 	Stars = 1,
 	Occurrence = 2,
-	Locations = "Around Ab'Dendriel, Carlin (east from Lothar), Femor Hills and Ferngrims Gate, usually in pairs. \z
-		They will appear when they're not overhunted."
-	}
+	Locations = "Around AbDendriel, Carlin east from Lothar, Femor Hills and Ferngrims Gate, usually in pairs. They will appear when theyre not Overhunting World Changeoverhunted.1. Mapper Coords127.143124.8772texthere  2. Mapper Coords127.113124.5772texthere3. Mapper Coords127.122124.6672texthere4. Mapper Coords127.62123.23672texthere5. Mapper Coords126.253123.22272texthere6. Mapper Coords126.234123.16872texthere7. Mapper Coords126.158123.11572texthere8. Mapper Coords126.128123.20272texthere9. Mapper Coords126.85123.18772texthere10. Mapper Coords125.254123.22272texthere"
+}
 
 monster.health = 195
 monster.maxHealth = 195
@@ -60,33 +59,34 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
-}
-
-monster.events = {
-	"WhiteDeerDeath"
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "*wheeze*", yell = false},
-	{text = "ROOOAAARR!!", yell = false},
+	{text = "*bell*", yell = false},
+	{text = "ROOOAAARR!!", yell = true},
 	{text = "*sniff*", yell = false},
-	{text = "*bell*", yell = false}
+	{text = "*wheeze*", yell = false},
 }
 
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--}
+
 monster.defenses = {
 	defense = 5,
-	armor = 10
+	armor = 2,
+	mitigation = 0.56,
 }
 
 monster.elements = {
@@ -98,8 +98,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
