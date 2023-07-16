@@ -23,9 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 5,
 	Stars = 1,
 	Occurrence = 0,
-	Locations = "Femor Hills, north east of Carlin, Edron Goblin Cave, Rookgaard (Premium Area), \z
-		Maze of Lost Souls and Fenrock."
-	}
+	Locations = "Femor Hills, north east of Carlin, Edron Goblin Cave, Rookgaard Premium Area, Maze of Lost Souls and Fenrock."
+}
 
 monster.health = 50
 monster.maxHealth = 50
@@ -60,22 +59,22 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Me have him!", yell = false},
 	{text = "Zig Zag! Gobo attack!", yell = false},
-	{text = "Help! Goblinkiller!", yell = false},
+	{text = "Me green, me mean!", yell = false},
 	{text = "Bugga! Bugga!", yell = false},
-	{text = "Me green, me mean!", yell = false}
+	{text = "Help! Goblinkiller!", yell = false},
+	{text = "Me have him!", yell = false},
 }
 
 monster.loot = {
@@ -93,6 +92,11 @@ monster.loot = {
 	{name = "goblin ear", chance = 910}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -10},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -25, range = ?, effect = <>, target = ?}, --Throws [[Small Stone]]s
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -10},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -25, range = 7, shootEffect = CONST_ANI_SMALLSTONE, target = false}
@@ -100,7 +104,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 10,
-	armor = 10
+	armor = 6,
+	mitigation = 0.20,
 }
 
 monster.elements = {
@@ -112,8 +117,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = -10}
+	{type = COMBAT_HOLYDAMAGE, percent = 20},
+	{type = COMBAT_DEATHDAMAGE, percent = -10},
 }
 
 monster.immunities = {

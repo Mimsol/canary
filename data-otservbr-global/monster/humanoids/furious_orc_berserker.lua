@@ -13,12 +13,12 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 210
-monster.maxHealth = 210
+monster.health = ?
+monster.maxHealth = ?
 monster.race = "blood"
 monster.corpse = 5980
 monster.speed = 125
-monster.manaCost = 220
+monster.manaCost = 0
 
 monster.changeTarget = {
 	interval = 5000,
@@ -37,27 +37,27 @@ monster.flags = {
 	pushable = false,
 	rewardBoss = false,
 	illusionable = false,
-	canPushItems = false,
+	canPushItems = true,
 	canPushCreatures = false,
 	staticAttackChance = 90,
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "KRAK ORRRRRRK!", yell = false}
+	{text = "KRAK ORRRRRRK!", yell = true},
 }
 
 monster.loot = {}
@@ -86,6 +86,42 @@ monster.elements = {
 
 monster.immunities = {
 	{type = "paralyze", condition = false},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = true}
+}
+
+mType:register(monster)
+}
+
+-- TODO: monster-abilities
+--monster.attacks = {
+--}
+monster.attacks = {
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = 0}
+}
+
+monster.defenses = {
+	defense = 2,
+	armor = 1
+--	mitigation = ???,
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 100},
+	{type = COMBAT_ENERGYDAMAGE, percent = 100},
+	{type = COMBAT_EARTHDAMAGE, percent = 100},
+	{type = COMBAT_FIREDAMAGE, percent = 100},
+	{type = COMBAT_LIFEDRAIN, percent = 100},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 100},
+	{type = COMBAT_ICEDAMAGE, percent = 100},
+	{type = COMBAT_HOLYDAMAGE, percent = 100},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
+}
+
+monster.immunities = {
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = true}

@@ -23,10 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 15,
 	Stars = 2,
 	Occurrence = 0,
-	Locations = "Yalahar Foreigner Quarter, Shadowthorn, northwest of Ab'Dendriel, north and west of Mount Sternum, \z
-		Hellgate, Maze of Lost Souls, near Knightwatch Tower in the Plains of Havoc. \z
-		Two may also spawn when a Desperate White Deer or an Enraged White Deer is killed."
-	}
+	Locations = "Yalahar Foreigner Quarter, Shadowthorn, northwest of AbDendriel, north and west of Mount Sternum, Hellgate, Maze of Lost Souls, near Knightwatch Tower in the Plains of Havoc. Two may also spawn when a Desperate White Deer or an Enraged White Deer is killed."
+}
 
 monster.health = 160
 monster.maxHealth = 160
@@ -61,22 +59,22 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Tha'shi Ab'Dendriel!", yell = false},
+	{text = "Evicor guide my arrow!", yell = false},
+	{text = "Your existence will end here!", yell = false},
 	{text = "Feel the sting of my arrows!", yell = false},
 	{text = "Thy blood will quench the soil's thirst!", yell = false},
-	{text = "Evicor guide my arrow!", yell = false},
-	{text = "Your existence will end here!", yell = false}
 }
 
 monster.loot = {
@@ -93,6 +91,11 @@ monster.loot = {
 	{name = "elven scouting glass", chance = 9750}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -30},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -80, range = ?, effect = <>, target = ?}, --Shoots [[Arrow]]s
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -30},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -80, range = 7, shootEffect = CONST_ANI_ARROW, target = false}
@@ -100,7 +103,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 10,
-	armor = 10
+	armor = 7,
+	mitigation = 0.46,
 }
 
 monster.elements = {
@@ -112,8 +116,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = -10}
+	{type = COMBAT_HOLYDAMAGE, percent = 20},
+	{type = COMBAT_DEATHDAMAGE, percent = -10},
 }
 
 monster.immunities = {

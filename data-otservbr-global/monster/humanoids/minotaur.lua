@@ -23,11 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 15,
 	Stars = 2,
 	Occurrence = 0,
-	Locations = "Mino Hell (Rookgaard), Two outside Bear Room Quest, (Rookgaard) and also 2x on the premium side, \z
-		Mintwallin, Folda, Minotaur Pyramid, Outlaw Camp, Kazordoon minotaur cave, Plains of Havoc, Elven Bane, \z
-		Deeper Fibula Dungeon (level 50+ to open the door), Ancient Temple, Maze of Lost Souls, \z
-		Thais Minotaur Camp, Foreigner Quarter."
-	}
+	Locations = "Mino Hell Rookgaard, Two outside Bear Room Quest, Rookgaard and also 2x on the premium side, Mintwallin, Folda, Minotaur Pyramid, Outlaw Camp, Kazordoon minotaur cave, Plains of Havoc, Elven Bane, Deeper Fibula Dungeon level 50 to open the door, Ancient Temple, Maze of Lost Souls, Thais Minotaur Camp, Foreigner Quarter."
+}
 
 monster.health = 100
 monster.maxHealth = 100
@@ -62,19 +59,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Kaplar!", yell = false},
-	{text = "Hurr", yell = false}
+	{text = "Hurr", yell = false},
 }
 
 monster.loot = {
@@ -92,13 +89,18 @@ monster.loot = {
 	{name = "minotaur horn", chance = 2090, maxCount = 2}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -45},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -45}
 }
 
 monster.defenses = {
 	defense = 15,
-	armor = 15
+	armor = 11,
+	mitigation = 0.28,
 }
 
 monster.elements = {
@@ -110,8 +112,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = -10}
+	{type = COMBAT_HOLYDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = -10},
 }
 
 monster.immunities = {

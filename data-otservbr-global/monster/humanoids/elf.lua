@@ -23,9 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 15,
 	Stars = 2,
 	Occurrence = 0,
-	Locations = "Yalahar Foreigner Quarter and Trade Quarter, Maze of Lost Souls, Orc Fort (unreachable), \z
-		Hellgate, Shadowthorn, Ab'Dendriel elf caves, Elvenbane, north of Thais."
-	}
+	Locations = "Yalahar Foreigner Quarter and Trade Quarter, Maze of Lost Souls, Orc Fort unreachable, Hellgate, Shadowthorn, AbDendriel elf caves, Elvenbane, north of Thais."
+}
 
 monster.health = 100
 monster.maxHealth = 100
@@ -60,22 +59,22 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Ulathil beia Thratha!", yell = false},
-	{text = "Bahaha aka!", yell = false},
+	{text = "Death to the Defilers!", yell = false},
 	{text = "You are not welcome here.", yell = false},
 	{text = "Flee as long as you can.", yell = false},
-	{text = "Death to the Defilers!", yell = false}
+	{text = "Bahaha aka!", yell = false},
+	{text = "Ulathil beia Thratha!", yell = false},
 }
 
 monster.loot = {
@@ -91,6 +90,11 @@ monster.loot = {
 	{name = "elvish talisman", chance = 2100}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -15},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -25, range = ?, effect = <>, target = ?}, --Shoots [[Arrow]]s
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -15},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -25, range = 7, shootEffect = CONST_ANI_ARROW, target = false}
@@ -98,7 +102,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 10,
-	armor = 10
+	armor = 6,
+	mitigation = 0.30,
 }
 
 monster.elements = {
@@ -110,8 +115,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = -10}
+	{type = COMBAT_HOLYDAMAGE, percent = 20},
+	{type = COMBAT_DEATHDAMAGE, percent = -10},
 }
 
 monster.immunities = {

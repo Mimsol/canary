@@ -23,10 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 15,
 	Stars = 2,
 	Occurrence = 0,
-	Locations = "Ancient Temple, Mintwallin, Minotaur Pyramid, Maze of Lost Souls, Folda, Cyclopolis, \z
-		Deeper Fibula Dungeon (level 50+ to open the door), Hero Cave, underground of Elvenbane, \z
-		Plains of Havoc, Kazordoon Minotaur Cave, Foreigner Quarter."
-	}
+	Locations = "Ancient Temple, Mintwallin, Minotaur Pyramid, Maze of Lost Souls, Folda, Cyclopolis, Deeper Fibula Dungeon level 50 to open the door, Hero Cave, underground of Elvenbane, Plains of Havoc, KazordoonKazordoon Minotaur Cave, Foreigner Quarter."
+}
 
 monster.health = 185
 monster.maxHealth = 185
@@ -63,19 +61,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Kirrl Karrrl!", yell = false},
-	{text = "Kaplar", yell = false}
+	{text = "Kaplar", yell = false},
 }
 
 monster.loot = {
@@ -92,13 +90,18 @@ monster.loot = {
 	{name = "piece of warrior armor", chance = 5040}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -100},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100}
 }
 
 monster.defenses = {
 	defense = 20,
-	armor = 20
+	armor = 15,
+	mitigation = 0.83,
 }
 
 monster.elements = {
@@ -110,8 +113,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = -10}
+	{type = COMBAT_HOLYDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = -10},
 }
 
 monster.immunities = {
