@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Many Faces")
 local monster = {}
 
 monster.description = "a many faces"
-monster.experience = 28600
+monster.experience = 18870
 monster.outfit = {
 	lookType = 1296,
 	lookHead = 0,
@@ -18,13 +18,13 @@ monster.Bestiary = {
 	class = "Demon",
 	race = BESTY_RACE_DEMON,
 	toKill = 5000,
-	FirstUnlock = 25,
-	SecondUnlock = 3394,
+	FirstUnlock = 200,
+	SecondUnlock = 2000,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
-	Locations = "The Mirrored Nightmare."
-	}
+	Locations = "Mirrored Nightmare."
+}
 
 monster.health = 30000
 monster.maxHealth = 30000
@@ -60,14 +60,14 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = true,
-	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -75,7 +75,7 @@ monster.voices = {
 	chance = 10,
 	{text = "I have a head start.", yell = false},
 	{text = "Look into my eyes! No, the other ones!", yell = false},
-	{text = "The mirrors can't contain the night!", yell = false}
+	{text = "The mirrors can't contain the night!", yell = false},
 }
 
 monster.loot = {
@@ -98,6 +98,10 @@ monster.loot = {
 	{id = 34109, chance = 50} -- bag you desire
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -?, maxDamage = -?},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -800},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ICEDAMAGE, minDamage = -550, maxDamage = -800, range = 7, shootEffect = CONST_ANI_SNOWBALL, effect = CONST_ME_ICEATTACK, target = true},
@@ -112,7 +116,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 90,
-	armor = 105
+	armor = 105,
+	mitigation = 3.34,
 }
 
 monster.elements = {
@@ -124,8 +129,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 30},
-	{type = COMBAT_HOLYDAMAGE , percent = 50},
-	{type = COMBAT_DEATHDAMAGE , percent = -30}
+	{type = COMBAT_HOLYDAMAGE, percent = 50},
+	{type = COMBAT_DEATHDAMAGE, percent = -30},
 }
 
 monster.immunities = {
