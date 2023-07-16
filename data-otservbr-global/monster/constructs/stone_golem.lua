@@ -23,11 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 15,
 	Stars = 2,
 	Occurrence = 0,
-	Locations = "Maze of Lost Souls, in and around Ashta daramai, Formorgar Mines, \z
-		Mad Technomancer room, Dark Cathedral, Demona, Goroma, Tarpit Tomb, Peninsula Tomb, \z
-		Deeper Banuta, Forbidden Lands, Beregar Mines, Farmine Mines, Drillworm Caves, 2 caves on Hrodmir, \z
-		Orc Fortress (single spawn) and Medusa Tower."
-	}
+	Locations = "Maze of Lost Souls, in and around Ashtadaramai, Formorgar Mines, Mad Technomancer room, Dark Cathedral, Demona, Goroma, Tarpit Tomb, Peninsula Tomb, Deeper Banuta, Forbidden Lands, Beregar Mines, Farmine Mines, Drillworm Caves, 2 caves on Hrodmir Mapper Coords125.61121.22371texthere and Mapper Coords125.69122.15181texthere, Orc Fortress single spawn, Mapper Coords128.169124.2494texthere and Medusa Tower."
+}
 
 monster.health = 270
 monster.maxHealth = 270
@@ -62,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -90,13 +87,18 @@ monster.loot = {
 	{id = 12600, chance = 550} -- coal
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -110},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -110}
 }
 
 monster.defenses = {
 	defense = 20,
-	armor = 20
+	armor = 30,
+	mitigation = 0.64,
 }
 
 monster.elements = {
@@ -108,8 +110,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 20}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 20},
 }
 
 monster.immunities = {

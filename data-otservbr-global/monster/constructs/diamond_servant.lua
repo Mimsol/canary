@@ -17,14 +17,14 @@ monster.raceId = 702
 monster.Bestiary = {
 	class = "Construct",
 	race = BESTY_RACE_CONSTRUCT,
-	toKill = 5,
-	FirstUnlock = 2,
-	SecondUnlock = 3,
-	CharmsPoints = 50,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 3,
-	Locations = "Edron."
-	}
+	Locations = "Edron, httptibia.wikia.comwikiMappercoords130.23,124.96,7 here."
+}
 
 monster.health = 1000
 monster.maxHealth = 1000
@@ -62,19 +62,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Error. LOAD 'PROGRAM',8,1", yell = false},
-	{text = "Remain. Obedient.", yell = false}
+	{text = "Remain. Obedient.", yell = false},
 }
 
 monster.loot = {
@@ -98,6 +98,13 @@ monster.loot = {
 	{name = "slime mould", chance = 480}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -100},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -120, range = ?, effect = <>, target = ?}, --Energy Berserk
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -60+, range = ?, effect = <>, target = ?}, --Energy Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1 second?, maxDamage = -1 second?, range = ?, effect = <>, target = ?}, --Distance [[Drunkenness]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -80, maxDamage = -120, radius = 3, effect = CONST_ME_YELLOWENERGY, target = false},
@@ -107,7 +114,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 25,
-	armor = 25
+	armor = 25,
+	mitigation = 0.83,
 }
 
 monster.elements = {
@@ -119,8 +127,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -15},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = -15},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 0,
-	Locations = "Factory Quarter."
-	}
+	Locations = "Factory Quarter 40 Mapper Coords128.107122.85104texthere 4 Gear Wheels required per entry. Four machines line the platform to the right or left.  Use one of the machines with the gearwheels present in your backpack.  You will receive the message, You insert all 4 gear wheels, thus adjusting the teleporter to transport you to the left side., 8 Mapper Coords128.151122.76104texthere, 2 Mapper Coords128.168122.23104texthere, 1 Mapper Coords128.135122.29104texthere, 4 Mapper Coords128.134122.62114texthere during Shadows of Yalahar Quest and many summons, Fenrock Mapper Coords127.36121.255134texthere and in Yalahar library Mapper Coordstextsingle spawn128.31121.2189210.50.5. Also spawn during the Azerus battle last mission of the In Service of Yalahar Quest, Underground Glooth Factory and Jaccus Maxxens Dungeon last area."
+}
 
 monster.health = 4300
 monster.maxHealth = 4300
@@ -62,12 +62,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 3,
+	color = 180,
 }
 
 monster.voices = {
@@ -82,7 +82,7 @@ monster.voices = {
 	{text = "The battle is joined!", yell = false},
 	{text = "Termination initialized!", yell = false},
 	{text = "Rrrtttarrrttarrrtta", yell = false},
-	{text = "Eliminated", yell = false}
+	{text = "Eliminated", yell = false},
 }
 
 monster.loot = {
@@ -112,6 +112,14 @@ monster.loot = {
 	{id = 12305, chance = 100} -- tin key
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -478+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -increases melee hit to about 550, maxDamage = -increases melee hit to about 550, range = ?, effect = <>, target = ?}, --[[Blood Rage]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -165, maxDamage = -220, range = ?, effect = <>, target = ?}, --Energy Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -8 turns of 25 damage, maxDamage = -8 turns of 25 damage, range = ?, effect = <>, target = ?}, --Electrifies you
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 200, maxDamage = 250},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -165, maxDamage = -220, range = 7, shootEffect = CONST_ANI_ENERGY, target = false},
@@ -122,7 +130,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 40,
-	armor = 40,
+	armor = 35,
+	mitigation = 1.18,
 	{name ="speed", interval = 2000, chance = 15, speedChange = 300, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 200, maxDamage = 250, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
@@ -136,8 +145,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 30},
-	{type = COMBAT_HOLYDAMAGE , percent = 50},
-	{type = COMBAT_DEATHDAMAGE , percent = 20}
+	{type = COMBAT_HOLYDAMAGE, percent = 50},
+	{type = COMBAT_DEATHDAMAGE, percent = 20},
 }
 
 monster.immunities = {
