@@ -1,14 +1,14 @@
 local mType = Game.createMonsterType("Time Waster")
 local monster = {}
 
-monster.description = "a time waster"
-monster.experience = 0
+monster.description = "a Time Waster"
+monster.experience = ?
 monster.outfit = {
 	lookTypeEx = 23729
 }
 
-monster.health = 1000
-monster.maxHealth = 1000
+monster.health = ?
+monster.maxHealth = ?
 monster.race = "undead"
 monster.corpse = 0
 monster.speed = 50
@@ -41,14 +41,14 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -59,6 +59,9 @@ monster.voices = {
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 100, attack = 100},
 	{name ="combat", interval = 2000, chance = 17, type = COMBAT_LIFEDRAIN, minDamage = -40, maxDamage = -60, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_YALAHARIGHOST, target = false},
@@ -68,6 +71,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 10,
 	armor = 10
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -79,8 +83,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 100},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = 100},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

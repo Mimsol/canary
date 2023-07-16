@@ -2,13 +2,13 @@ local mType = Game.createMonsterType("Dragon Egg")
 local monster = {}
 
 monster.description = "a dragon egg"
-monster.experience = 0
+monster.experience = ?
 monster.outfit = {
 	lookTypeEx = 25077
 }
 
-monster.health = 5000
-monster.maxHealth = 5000
+monster.health = ?
+monster.maxHealth = ?
 monster.race = "undead"
 monster.corpse = 0
 monster.speed = 0
@@ -40,17 +40,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
-}
-
-monster.events = {
-	"DragonEggPrepareDeath",
-	"DragonEggHealthChange"
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -61,22 +56,27 @@ monster.voices = {
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--}
+
 monster.defenses = {
 	defense = 5,
 	armor = 10
+--	mitigation = ???,
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
+	{type = COMBAT_FIREDAMAGE, percent = 10},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

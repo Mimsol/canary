@@ -1,8 +1,8 @@
-local mType = Game.createMonsterType("Baby Dragon")
+local mType = Game.createMonsterType("Baby Dragon (Creature)")
 local monster = {}
 
 monster.description = "a baby dragon"
-monster.experience = 185
+monster.experience = ?
 monster.outfit = {
 	lookType = 271,
 	lookHead = 0,
@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 380
-monster.maxHealth = 380
+monster.health = ?
+monster.maxHealth = ?
 monster.race = "blood"
 monster.corpse = 269
 monster.speed = 88
@@ -40,21 +40,21 @@ monster.flags = {
 	pushable = false,
 	rewardBoss = false,
 	illusionable = false,
-	canPushItems = true,
+	canPushItems = false,
 	canPushCreatures = true,
 	staticAttackChance = 90,
 	targetDistance = 1,
 	runHealth = 30,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -65,6 +65,9 @@ monster.voices = {
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 45, attack = 0},
 }
@@ -72,6 +75,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 38,
 	armor = 25
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -79,12 +83,12 @@ monster.elements = {
 	{type = COMBAT_ENERGYDAMAGE, percent = 100},
 	{type = COMBAT_EARTHDAMAGE, percent = 100},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_LIFEDRAIN, percent = 100},
 	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 100},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = 100},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

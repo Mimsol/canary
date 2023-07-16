@@ -2,13 +2,13 @@ local mType = Game.createMonsterType("Lost Time")
 local monster = {}
 
 monster.description = "a lost time"
-monster.experience = 0
+monster.experience = ?
 monster.outfit = {
 	lookTypeEx = 24963
 }
 
-monster.health = 2000
-monster.maxHealth = 2000
+monster.health = ?
+monster.maxHealth = ?
 monster.race = "undead"
 monster.corpse = 0
 monster.speed = 80
@@ -41,14 +41,14 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -59,6 +59,9 @@ monster.voices = {
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 50, attack = 25},
 	{name ="white shade paralyze", interval = 2000, chance = 18, target = false}
@@ -67,6 +70,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 10,
 	armor = 10
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -78,8 +82,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

@@ -1,8 +1,8 @@
 local mType = Game.createMonsterType("Dragonking Zyrtarch")
 local monster = {}
 
-monster.description = "dragonking zyrtarch"
-monster.experience = 1600
+monster.description = "Dragonking Zyrtarch"
+monster.experience = ?
 monster.outfit = {
 	lookType = 938,
 	lookHead = 0,
@@ -13,12 +13,12 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 150000
-monster.maxHealth = 150000
+monster.health = ?
+monster.maxHealth = ?
 monster.race = "fire"
 monster.corpse = 25065
 monster.speed = 140
-monster.manaCost = 290
+monster.manaCost = 0
 
 monster.changeTarget = {
 	interval = 5000,
@@ -38,7 +38,7 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = false,
-	rewardBoss = false,
+	rewardBoss = true,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
@@ -49,12 +49,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -65,6 +65,11 @@ monster.voices = {
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -?, maxDamage = -?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -?, maxDamage = -?, range = ?, effect = <>, target = ?}, --[[Earth Damage|Poison Bomb]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 112, attack = 85},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -110, maxDamage = -495, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
@@ -79,6 +84,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 64,
 	armor = 52
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -90,8 +96,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 100},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = 100},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {
