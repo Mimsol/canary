@@ -15,7 +15,7 @@ monster.outfit = {
 
 monster.bosstiary = {
 	bossRaceId = 1804,
-	rarity = RARITY_ARCHFOE,
+	bossRace = RARITY_ARCHFOE,
 	storageCooldown = Storage.GraveDanger.CobraBastion.ScarlettTimer,
 }
 
