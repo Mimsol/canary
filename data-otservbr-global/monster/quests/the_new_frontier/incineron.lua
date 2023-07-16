@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Incineron")
 local monster = {}
 
-monster.description = "Incineron"
+monster.description = "a Incineron"
 monster.experience = 3500
 monster.outfit = {
 	lookType = 243,
@@ -12,6 +12,8 @@ monster.outfit = {
 	lookAddons = 0,
 	lookMount = 0
 }
+
+monster.raceId = 602
 
 monster.health = 7000
 monster.maxHealth = 7000
@@ -47,14 +49,14 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 5,
+	color = 212,
 }
 
 monster.voices = {
@@ -65,6 +67,11 @@ monster.voices = {
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -394, range = ?, effect = <>, target = ?}, --[[Ultimate Explosion]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -700?, maxDamage = -1200+, range = ?, effect = <>, target = ?}, --[[Flame Beam]]
+--}
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 35, type = COMBAT_FIREDAMAGE, minDamage = -700, maxDamage = -1025, length = 8, spread = 3, effect = CONST_ME_FIREAREA, target = false},
 	{name ="combat", interval = 2000, chance = 35, type = COMBAT_FIREDAMAGE, minDamage = 0, maxDamage = -395, range = 7, radius = 7, effect = CONST_ME_FIREAREA, target = false}
@@ -73,6 +80,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 25,
 	armor = 25
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -84,8 +92,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

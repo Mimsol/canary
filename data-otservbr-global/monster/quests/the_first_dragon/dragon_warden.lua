@@ -1,8 +1,8 @@
 local mType = Game.createMonsterType("Dragon Warden")
 local monster = {}
 
-monster.description = "a dragon warden"
-monster.experience = 4600
+monster.description = "a Dragon Warden"
+monster.experience = ?
 monster.outfit = {
 	lookType = 947,
 	lookHead = 5,
@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 2800
-monster.maxHealth = 2800
+monster.health = ?
+monster.maxHealth = ?
 monster.race = "blood"
 monster.corpse = 25186
 monster.speed = 160
@@ -23,6 +23,8 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 2000,
 	chance = 5
+}
+
 }
 
 monster.flags = {
@@ -42,12 +44,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -58,6 +60,10 @@ monster.voices = {
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -500?},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 80, attack = 80},
 	{name ="combat", interval = 2000, chance = 17, type = COMBAT_FIREDAMAGE, minDamage = -150, maxDamage = -230, length = 8, spread = 3, effect = CONST_ME_FIREAREA, target = false}
@@ -66,6 +72,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 35,
 	armor = 45,
+--	mitigation = ???,
 	{name ="combat", interval = 2000, chance = 9, type = COMBAT_HEALING, minDamage = 70, maxDamage = 300, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -73,13 +80,13 @@ monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
-	{type = COMBAT_LIFEDRAIN, percent = 100},
+	{type = COMBAT_FIREDAMAGE, percent = 95},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Tremorak")
 local monster = {}
 
-monster.description = "Tremorak"
+monster.description = "a Tremorak"
 monster.experience = 1300
 monster.outfit = {
 	lookType = 285,
@@ -12,6 +12,8 @@ monster.outfit = {
 	lookAddons = 0,
 	lookMount = 0
 }
+
+monster.raceId = 605
 
 monster.health = 10000
 monster.maxHealth = 10000
@@ -47,25 +49,33 @@ monster.flags = {
 	runHealth = 1,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "*STOMP STOMP*", yell = true}
+	{text = "*STOMP STOMP*", yell = true},
 }
 
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -114},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -254, range = ?, effect = <>, target = ?}, --Stone UE
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -0, maxDamage = -404, range = ?, effect = <>, target = ?}, --Great Earth Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -starting with ~18, maxDamage = -starting with ~18, range = ?, effect = <>, target = ?}, --poison you
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 0},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 36, attack = 50},
 	{name ="combat", interval = 2000, chance = 16, type = COMBAT_EARTHDAMAGE, minDamage = 0, maxDamage = -255, radius = 7, effect = CONST_ME_GROUNDSHAKER, target = false},
@@ -77,6 +87,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 30,
 	armor = 30,
+--	mitigation = ???,
 	{name ="combat", interval = 2000, chance = 16, type = COMBAT_HEALING, minDamage = 75, maxDamage = 200, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -89,12 +100,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 50},
-	{type = COMBAT_DEATHDAMAGE , percent = 45}
+	{type = COMBAT_HOLYDAMAGE, percent = 50},
+	{type = COMBAT_DEATHDAMAGE, percent = 35},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

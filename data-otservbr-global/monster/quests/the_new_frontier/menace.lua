@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Menace")
 local monster = {}
 
-monster.description = "Menace"
+monster.description = "a Menace"
 monster.experience = 3250
 monster.outfit = {
 	lookType = 113,
@@ -12,6 +12,8 @@ monster.outfit = {
 	lookAddons = 0,
 	lookMount = 0
 }
+
+monster.raceId = 611
 
 monster.health = 6000
 monster.maxHealth = 6000
@@ -47,14 +49,14 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -65,6 +67,10 @@ monster.voices = {
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -215},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 33, attack = 100}
 }
@@ -72,23 +78,24 @@ monster.attacks = {
 monster.defenses = {
 	defense = 19,
 	armor = 16
+--	mitigation = ???,
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 20},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 100},
 	{type = COMBAT_FIREDAMAGE, percent = -10},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
