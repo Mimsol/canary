@@ -23,9 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 15,
 	Stars = 2,
 	Occurrence = 0,
-	Locations = "Tyrsung (in the Jotunar mountain), Formorgar Glacier (single spawn), \z
-		Mammoth Shearing Factory, Chyllfroest."
-	}
+	Locations = "Tyrsung in the Jotunar mountain, Formorgar Glacier single spawn, Mammoth Shearing Factory, Chyllfroest."
+}
 
 monster.health = 270
 monster.maxHealth = 270
@@ -61,12 +60,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -75,9 +74,9 @@ monster.voices = {
 	{text = "Hmm Humansoup!", yell = false},
 	{text = "Stand still ya tasy snack!", yell = false},
 	{text = "Joh Thun!", yell = false},
-	{text = "Brï¿½re Smï¿½de!", yell = false},
-	{text = "Hï¿½rre Sjan Flan!", yell = false},
-	{text = "Forle Bramma", yell = false}
+	{text = "Hörre Sjan Flan!", yell = false},
+	{text = "Bröre Smöde!", yell = false},
+	{text = "Forle Bramma", yell = false},
 }
 
 monster.loot = {
@@ -95,6 +94,11 @@ monster.loot = {
 	{name = "frost giant pelt", chance = 5000}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -110},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -90, range = ?, effect = <>, target = ?}, --Boulder throw
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -110},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -90, range = 7, shootEffect = CONST_ANI_LARGEROCK, target = false}
@@ -102,7 +106,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 20,
-	armor = 20,
+	armor = 22,
+	mitigation = 0.46,
 	{name ="speed", interval = 2000, chance = 15, speedChange = 300, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }
 
@@ -115,8 +120,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

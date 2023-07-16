@@ -23,11 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 5,
 	Stars = 1,
 	Occurrence = 0,
-	Locations = "All around Tiquanda and Feyrist. Several groups of Wisps can be found in and around \z
-		the forests north of Edron. West of Hardek. Inside the Cyclops Camp. North of the triple \z
-		Wyvern spawn outside Kazordoon. West of Ab'Dendriel. West of Venore Amazon Camp. \z
-		A few spawns around Venore, 2 spawn on the Formorgar Glacier, and on Krimhorn."
-	}
+	Locations = "All around Tiquanda and Feyrist. Several groups of Wisps can be found in and around the forests north of Edron 2 Mapper Coords129.100123.17173texthere, 3 Mapper Coords129.137123.21773textaround here, 3 Mapper Coords129.206123.19573textaround here and 2 Mapper Coords129.158124.773textaround here. 2 west of Hardek, Mapper Coords125.249126.9373texthere. 1 inside the Cyclops Camp. 2 north of the triple Wyvern spawn outside Kazordoon, Mapper Coords127.145124.9573texthere. 1 west of AbDendriel, Mapper Coords127.54123.16973texthere. 2 west of Venore Amazon Camp, Mapper Coords127.226124.17773texthere. A few spawns around Venore Mapper Coords128.136125.24273texthere, Mapper Coords128.218125.21073texthere, 2 Mapper Coords129.5125.21373texthere and 2 Mapper Coords129.62125.8273textaround here. 2 spawn on the Formorgar Glacier, Mapper Coords125.24121.12872texthere and Mapper Coords125.31121.20462texthere, and 1 on Krimhorn, Mapper Coords125.9122.10972texthere."
+}
 
 monster.health = 115
 monster.maxHealth = 115
@@ -53,7 +50,7 @@ monster.flags = {
 	pushable = false,
 	rewardBoss = false,
 	illusionable = true,
-	canPushItems = false,
+	canPushItems = true,
 	canPushCreatures = false,
 	staticAttackChance = 15,
 	targetDistance = 7,
@@ -62,25 +59,31 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 4,
+	color = 204,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Crackle!", yell = false},
-	{text = "Tsshh", yell = false}
+	{text = "Tsshh", yell = false},
 }
 
 monster.loot = {
 	{name = "moon backpack", chance = 220}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -3, maxDamage = -7, range = ?, effect = <>, target = ?}, --close range [[Life Drain]]
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 15, maxDamage = 25+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -for 2 seconds, maxDamage = -for 2 seconds, range = ?, effect = <>, target = ?}, --[[Invisible]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -10},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -3, maxDamage = -7, range = 1, effect = CONST_ME_MAGIC_RED, target = true}
@@ -88,7 +91,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 10,
-	armor = 10,
+	armor = 7,
+	mitigation = 0.43,
 	{name ="speed", interval = 2000, chance = 15, speedChange = 200, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000},
 	{name ="combat", interval = 2000, chance = 5, type = COMBAT_HEALING, minDamage = 15, maxDamage = 25, effect = CONST_ME_MAGIC_GREEN, target = false},
 	{name ="invisible", interval = 2000, chance = 10, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 3000}
@@ -103,8 +107,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {
