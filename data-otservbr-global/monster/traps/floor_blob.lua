@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Floor Blob")
 local monster = {}
 
 monster.description = "a floor blob"
-monster.experience = 0
+monster.experience = --
 monster.outfit = {
 	lookType = 459,
 	lookHead = 0,
@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 1
-monster.maxHealth = 1
+monster.health = --
+monster.maxHealth = --
 monster.race = "venom"
 monster.corpse = 0
 monster.speed = 0
@@ -37,10 +37,10 @@ monster.flags = {
 	attackable = true,
 	hostile = true,
 	convinceable = false,
-	pushable = true,
+	pushable = false,
 	rewardBoss = false,
 	illusionable = false,
-	canPushItems = false,
+	canPushItems = true,
 	canPushCreatures = false,
 	staticAttackChance = 90,
 	targetDistance = 1,
@@ -49,22 +49,27 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 4,
+	color = 186,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
+	{text = "Goumph!", yell = false},
+	{text = "Oump!", yell = false},
 }
 
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = 0}
 }
@@ -72,6 +77,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 11,
 	armor = 5
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -81,10 +87,10 @@ monster.elements = {
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 100},
 	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 100},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = 100},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

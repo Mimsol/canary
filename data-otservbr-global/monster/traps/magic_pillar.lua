@@ -2,13 +2,13 @@ local mType = Game.createMonsterType("Magic Pillar")
 local monster = {}
 
 monster.description = "a magic pillar"
-monster.experience = 0
+monster.experience = --
 monster.outfit = {
 	lookTypeEx = 2190
 }
 
-monster.health = 1
-monster.maxHealth = 1
+monster.health = --
+monster.maxHealth = --
 monster.race = "undead"
 monster.corpse = 0
 monster.speed = 0
@@ -31,7 +31,7 @@ monster.flags = {
 	pushable = false,
 	rewardBoss = false,
 	illusionable = false,
-	canPushItems = false,
+	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 95,
 	targetDistance = 1,
@@ -40,12 +40,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.summon = {
@@ -63,9 +63,14 @@ monster.voices = {
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--}
+
 monster.defenses = {
 	defense = 1,
 	armor = 1
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -74,11 +79,11 @@ monster.elements = {
 	{type = COMBAT_EARTHDAMAGE, percent = 100},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 100},
-	{type = COMBAT_MANADRAIN, percent = 100},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 100},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = 100},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

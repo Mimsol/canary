@@ -1,18 +1,18 @@
 local mType = Game.createMonsterType("Hive Pore")
 local monster = {}
 
-monster.description = "a hive pore"
-monster.experience = 0
+monster.description = "a Hive Pore"
+monster.experience = --
 monster.outfit = {
 	lookTypeEx = 14064
 }
 
-monster.health = 1
-monster.maxHealth = 1
+monster.health = --
+monster.maxHealth = --
 monster.race = "venom"
 monster.corpse = 0
-monster.speed = 0
-monster.manaCost = 355
+monster.speed = 40
+monster.manaCost = 0
 
 monster.changeTarget = {
 	interval = 4000,
@@ -31,7 +31,7 @@ monster.flags = {
 	pushable = false,
 	rewardBoss = false,
 	illusionable = false,
-	canPushItems = false,
+	canPushItems = true,
 	canPushCreatures = false,
 	staticAttackChance = 90,
 	targetDistance = 1,
@@ -40,12 +40,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.summon = {
@@ -63,12 +63,16 @@ monster.voices = {
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--}
 monster.attacks = {
 }
 
 monster.defenses = {
 	defense = 0,
 	armor = 0,
+--	mitigation = ???,
 	{name ="effect", interval = 30000, chance = 100, radius = 3, effect = CONST_ME_HITBYPOISON, target = false}
 }
 
@@ -79,10 +83,10 @@ monster.elements = {
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 100},
 	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 100},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = 100},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

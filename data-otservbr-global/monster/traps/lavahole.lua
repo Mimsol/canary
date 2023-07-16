@@ -2,13 +2,13 @@ local mType = Game.createMonsterType("Lavahole")
 local monster = {}
 
 monster.description = "a lavahole"
-monster.experience = 0
+monster.experience = --
 monster.outfit = {
 	lookTypeEx = 391
 }
 
-monster.health = 1
-monster.maxHealth = 1
+monster.health = --
+monster.maxHealth = --
 monster.race = "undead"
 monster.corpse = 0
 monster.speed = 0
@@ -40,12 +40,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -56,6 +56,10 @@ monster.voices = {
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -111, range = ?, effect = <>, target = ?}, --Fire Attack
+--}
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 50, type = COMBAT_FIREDAMAGE, minDamage = 0, maxDamage = -100, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = false}
 }
@@ -63,6 +67,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 5,
 	armor = 10
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -71,11 +76,11 @@ monster.elements = {
 	{type = COMBAT_EARTHDAMAGE, percent = 100},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 100},
-	{type = COMBAT_MANADRAIN, percent = 100},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 100},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = 100},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

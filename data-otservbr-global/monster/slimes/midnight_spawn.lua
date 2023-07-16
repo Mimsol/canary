@@ -17,14 +17,14 @@ monster.raceId = 584
 monster.Bestiary = {
 	class = "Slime",
 	race = BESTY_RACE_SLIME,
-	toKill = 5,
-	FirstUnlock = 2,
-	SecondUnlock = 3,
-	CharmsPoints = 50,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 3,
-	Locations = "Forbidden Lands."
-	}
+	Locations = "Forbidden Lands around httpstibia.fandom.comwikiMappercoords128.251-127.50-7-4-1-1 the Lightbringers basin."
+}
 
 monster.health = 2000
 monster.maxHealth = 2000
@@ -61,13 +61,13 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -79,13 +79,21 @@ monster.loot = {
 	{name = "midnight shard", chance = 8333}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -150?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -0, maxDamage = -225?, range = ?, effect = <>, target = ?}, --Poison Hit
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -90, maxDamage = -110?, range = ?, effect = <>, target = ?}, --Energy Exori
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Drunk Hit
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100}
 }
 
 monster.defenses = {
 	defense = 10,
-	armor = 10
+	armor = 40,
+	mitigation = 1.18,
 }
 
 monster.elements = {
@@ -93,12 +101,12 @@ monster.elements = {
 	{type = COMBAT_ENERGYDAMAGE, percent = 10},
 	{type = COMBAT_EARTHDAMAGE, percent = 80},
 	{type = COMBAT_FIREDAMAGE, percent = 30},
-	{type = COMBAT_LIFEDRAIN, percent = 99},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = 30},
-	{type = COMBAT_DEATHDAMAGE , percent = -5}
+	{type = COMBAT_HOLYDAMAGE, percent = 30},
+	{type = COMBAT_DEATHDAMAGE, percent = -5},
 }
 
 monster.immunities = {
