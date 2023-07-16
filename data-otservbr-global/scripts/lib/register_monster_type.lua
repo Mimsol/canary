@@ -467,13 +467,30 @@ registerMonsterType.loot = function(mtype, mask)
 		end
 	end
 end
+local playerElements = { COMBAT_PHYSICALDAMAGE, COMBAT_ENERGYDAMAGE, COMBAT_EARTHDAMAGE, COMBAT_FIREDAMAGE, COMBAT_ICEDAMAGE, COMBAT_HOLYDAMAGE, COMBAT_DEATHDAMAGE }
 registerMonsterType.elements = function(mtype, mask)
 	local min = configManager.getNumber(configKeys.MIN_ELEMENTAL_RESISTANCE)
 	local max = configManager.getNumber(configKeys.MAX_ELEMENTAL_RESISTANCE)
+	local canClip = false
 	if type(mask.elements) == "table" then
+		for _, playerElement in pairs(playerElements) do
+			local found = false
+			for _, element in pairs(mask.elements) do
+				if element.type == playerElement then
+					found = true
+					canClip = canClip or element.percent ~= 100
+					break
+				end
+			end
+			canClip = canClip or not found
+		end
 		for _, element in pairs(mask.elements) do
 			if element.type and element.percent then
-				mtype:addElement(element.type, math.max(math.min(element.percent, min), max))
+				local value = element.percent
+				if canClip then
+					value = math.max(math.min(element.percent, min), max)
+				end
+				mtype:addElement(element.type, value)
 			end
 		end
 	end
