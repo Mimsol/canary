@@ -23,12 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 0,
-	Locations = "Beregar, Black Knight's Villa, Chor, Ghostlands, Chyllfroest, Crystal Gardens, \z
-		Crystal Grounds, Dragon Lair (Edron), Drillworm Cave, Folda, Hero Fortress, Kazordoon, \z
-		Green Djinn Tower, Mushroom Fields,Paradox Tower, Plains of Havoc, Plague Spike, \z
-		Poachers' Camp (Ferngrims Gate), Stonehome, Tiquanda, Truffels Garden, \z
-		Vandura Mountain, Vega, Venore, Wyvern Cave (Ferngrims Gate), Wyvern Hill and Wyvern Ulderek's Rock Cave."
-	}
+	Locations = " Carlin Folda 3x, Vega 3x and Ghostlands 1x. Kazordoon North of dragon lair Mapper Coords127.158124.14073texthere, 3x, a 9x 7x2x Ferngrims Gate, West of Orc Fortress ground spawn, 2x and at Paradox Tower entrance 2x. Also inside the Drillworm Caves. Gnomegate All over the place in the Truffels Garden and the Crystal Grounds, as well as Mushroom Gardens. Venore Plains of Havoc Ground level in the Giant Spider field, Mapper Coords127.217125.7873texthere and in  Black Knights Villa 1x. Edron 8x north east of town in the mountains, 2x spawn north of the mountain pass, north of Stonehome 1x, 2x north of Edron Dragon Lair, and 2x at the entrance to the Old Fortress. Darashia Plague Spike 3x. Ankrahmun MalouquahGreen Djinn Tower entrance 1x and near the Hyaenas and Cobras 3x. Port Hope Deep in Tiquanda Mapper Coords128.72127.11873texthere 2x and on a hill at Chor 3x. Vandura Mountain In the area with Nightstalkers 1x. Formorgar Glacier All over the place 2x with Mammoths and near the Magic Forcefieldteleporter to The Bloodtusk. Chyllfroest Several on top of the mountain and underground. Nargor in Crystal Gardens."
+}
 
 monster.health = 795
 monster.maxHealth = 795
@@ -63,18 +59,18 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Shriiiek", yell = true}
+	{text = "Shriiiek", yell = false},
 }
 
 monster.loot = {
@@ -89,6 +85,13 @@ monster.loot = {
 	{name = "wyvern talisman", chance = 12300}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -120},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -starts from up to 13hp per turn, maxDamage = -starts from up to 13hp per turn, range = ?, effect = <>, target = ?}, --Poison Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -[[Drunkenness]] for up to 25 seconds, maxDamage = -[[Drunkenness]] for up to 25 seconds, range = ?, effect = <>, target = ?}, --Screech
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 45, maxDamage = 65},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -120, condition = {type = CONDITION_POISON, totalDamage = 480, interval = 4000}},
 	-- poison
@@ -98,7 +101,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 25,
-	armor = 25,
+	armor = 19,
+	mitigation = 1.21,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 45, maxDamage = 65, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 2000, chance = 15, speedChange = 300, effect = CONST_ME_MAGIC_GREEN, target = false, duration = 5000}
 }
@@ -112,8 +116,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
