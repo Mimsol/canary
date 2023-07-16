@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 15,
 	Stars = 2,
 	Occurrence = 0,
-	Locations = "Factory, Foreigner, and Trade Quarters in Yalahar."
-	}
+	Locations = "Factory QuarterFactory, Foreigner QuarterForeigner, and Trade Quarters in Yalahar."
+}
 
 monster.health = 100
 monster.maxHealth = 100
@@ -59,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -74,9 +74,9 @@ monster.voices = {
 	{text = "Raahhh!", yell = false},
 	{text = "You are one of THEM! Die!", yell = false},
 	{text = "Wanna buy roses??", yell = false},
-	{text = "They're coming! They're coming!", yell = false},
 	{text = "Make it stop!", yell = false},
-	{text = "Gimme money!", yell = false}
+	{text = "They're coming! They're coming!", yell = false},
+	{text = "Gimme money!", yell = false},
 }
 
 monster.loot = {
@@ -97,13 +97,18 @@ monster.loot = {
 	{id = 8894, chance = 80} -- heavily rusted armor
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -25},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -25}
 }
 
 monster.defenses = {
 	defense = 15,
-	armor = 15
+	armor = 4,
+	mitigation = 0.20,
 }
 
 monster.elements = {
@@ -115,8 +120,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = -10}
+	{type = COMBAT_HOLYDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = -10},
 }
 
 monster.immunities = {

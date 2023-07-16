@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 15,
 	Stars = 2,
 	Occurrence = 0,
-	Locations = "Trade Quarter, Arena and Zoo Quarter."
-	}
+	Locations = "Trade Quarter, Arena and Zoo Quarter"
+}
 
 monster.health = 185
 monster.maxHealth = 185
@@ -59,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -73,7 +73,7 @@ monster.voices = {
 	{text = "You are no match for me!", yell = false},
 	{text = "Feel my prowess.", yell = false},
 	{text = "Fight!", yell = false},
-	{text = "Take this!", yell = false}
+	{text = "Take this!", yell = false},
 }
 
 monster.loot = {
@@ -89,13 +89,18 @@ monster.loot = {
 	{name = "belted cape", chance = 340}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -90},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -90}
 }
 
 monster.defenses = {
 	defense = 25,
-	armor = 25,
+	armor = 14,
+	mitigation = 0.78,
 	{name ="speed", interval = 2000, chance = 15, speedChange = 215, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }
 
@@ -108,8 +113,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = -5}
+	{type = COMBAT_HOLYDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = -5},
 }
 
 monster.immunities = {
