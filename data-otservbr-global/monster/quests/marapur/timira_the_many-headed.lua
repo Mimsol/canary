@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Timira the Many-Headed")
 local monster = {}
 
-monster.name = "Timira The Many-Headed"
+monster.name = "Timira the Many-Headed"
 monster.description = "Timira the Many-Headed"
 monster.experience = 78000
 monster.outfit = {
