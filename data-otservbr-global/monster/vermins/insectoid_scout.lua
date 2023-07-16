@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 15,
 	Stars = 2,
 	Occurrence = 2,
-	Locations = "West and south of Greenshore."
-	}
+	Locations = "West and httptibia.wikia.comwikiMappercoords126.4,125.102,7 south of Greenshore."
+}
 
 monster.health = 230
 monster.maxHealth = 230
@@ -57,21 +57,21 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
+	{text = "Klk! Klk!", yell = false},
 	{text = "Chrrr! Chrr!", yell = false},
-	{text = "Klk! Klk!", yell = false}
 }
 
 monster.loot = {
@@ -81,13 +81,18 @@ monster.loot = {
 	{name = "health potion", chance = 280}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -73?},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -74, condition = {type = CONDITION_POISON, totalDamage = 60, interval = 4000}}
 }
 
 monster.defenses = {
 	defense = 15,
-	armor = 15
+	armor = 27,
+	mitigation = 0.56,
 }
 
 monster.elements = {
@@ -99,8 +104,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

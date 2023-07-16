@@ -23,9 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 2,
-	Locations = "The Hive: east tower (beyond gates), west tower (including beyond gates), \z
-		also anywhere Hive Overseers are found (as summons), Hive Outpost."
-	}
+	Locations = "The Hive east tower beyond gates, west tower including beyond gates, also anywhere Hive Overseers are found as summons, Hive Outpost."
+}
 
 monster.health = 5000
 monster.maxHealth = 5000
@@ -58,14 +57,14 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -91,13 +90,20 @@ monster.loot = {
 	{name = "hive scythe", chance = 1390}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -350},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -150, maxDamage = -310?, range = ?, effect = <>, target = ?}, --[[Earth Damage|Poison Burst Arrow]]
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 175, maxDamage = 225},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -349}
 }
 
 monster.defenses = {
 	defense = 30,
-	armor = 30
+	armor = 55,
+	mitigation = 1.74,
 }
 
 monster.elements = {
@@ -109,12 +115,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -3},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = -10},
+	{type = COMBAT_DEATHDAMAGE, percent = 10},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
