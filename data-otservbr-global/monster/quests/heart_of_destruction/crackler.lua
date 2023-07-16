@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Crackler")
 local monster = {}
 
 monster.description = "a crackler"
-monster.experience = 0
+monster.experience = ?
 monster.outfit = {
 	lookType = 293,
 	lookHead = 0,
@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 15000
-monster.maxHealth = 15000
+monster.health = ?
+monster.maxHealth = ?
 monster.race = "venom"
 monster.corpse = 0
 monster.speed = 150
@@ -47,18 +47,14 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
-}
-
-monster.events = {
-	"CracklerTransform"
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -69,6 +65,10 @@ monster.voices = {
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -0, maxDamage = -230+, range = ?, effect = <>, target = ?}, --Energy Shot
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -300},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -100, maxDamage = -300, range = 4, radius = 2, shootEffect = CONST_ANI_ENERGYBALL, effect = CONST_ME_ENERGYHIT, target = true},
@@ -80,6 +80,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 50,
 	armor = 50,
+--	mitigation = ???,
 	{name ="combat", interval = 2000, chance = 12, type = COMBAT_HEALING, minDamage = 100, maxDamage = 300, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -92,8 +93,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 100},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = 100},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {
