@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Anomaly")
 local monster = {}
 
-monster.description = "Anomaly"
+monster.description = "anomaly"
 monster.experience = 50000
 monster.outfit = {
 	lookType = 876,
@@ -11,6 +11,12 @@ monster.outfit = {
 	lookFeet = 79,
 	lookAddons = 1,
 	lookMount = 0
+}
+
+monster.bosstiary = {
+	bossRaceId = 1219,
+	rarity = RARITY_ARCHFOE,
+	storageCooldown = 14321,
 }
 
 monster.health = 290000
@@ -23,12 +29,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 2000,
 	chance = 25
-}
-
-monster.bosstiary = {
-	bossRaceId = 1219,
-	bossRace = RARITY_ARCHFOE,
-	storageCooldown = 14321
 }
 
 monster.strategiesTarget = {
@@ -55,23 +55,17 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
-}
-
-monster.events = {
-	"AnomalyTransform",
-	"HeartBossDeath"
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Brzlll! Brzzzl!", yell = false}
 }
 
 monster.loot = {
@@ -123,6 +117,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 100,
 	armor = 100,
+--	mitigation = ???,
 	{name ="combat", interval = 2000, chance = 30, type = COMBAT_HEALING, minDamage = 150, maxDamage = 400, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
