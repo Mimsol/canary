@@ -38,7 +38,7 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = false,
-	rewardBoss = false,
+	rewardBoss = true,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
@@ -48,20 +48,20 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
+	{text = "I SENSE LIFE", yell = true},
 	{text = "FEEEED MY ETERNAL HUNGER!", yell = true},
-	{text = "I SENSE LIFE", yell = true}
 }
 
 monster.loot = {
@@ -90,6 +90,10 @@ monster.loot = {
 	{id = 3392, chance = 1690} -- royal helmet
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Same as an [[Undead Dragon]]'s
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 90, attack = 96},
 	{name ="combat", interval = 2000, chance = 5, type = COMBAT_PHYSICALDAMAGE, minDamage = -300, maxDamage = -400, range = 7, radius = 4, target = true},
@@ -105,20 +109,21 @@ monster.attacks = {
 monster.defenses = {
 	defense = 40,
 	armor = 40,
+--	mitigation = ???,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 200, maxDamage = 250, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 10},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 20},
+	{type = COMBAT_ENERGYDAMAGE, percent = -10},
 	{type = COMBAT_EARTHDAMAGE, percent = 100},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
-	{type = COMBAT_LIFEDRAIN, percent = 100},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 50},
-	{type = COMBAT_HOLYDAMAGE , percent = -25},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

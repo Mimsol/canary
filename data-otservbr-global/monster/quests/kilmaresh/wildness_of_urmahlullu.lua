@@ -1,8 +1,8 @@
 local mType = Game.createMonsterType("Wildness of Urmahlullu")
 local monster = {}
 
-monster.description = "wildness of urmahlullu"
-monster.experience = 0
+monster.description = "Wildness of Urmahlullu"
+monster.experience = ?
 monster.outfit = {
 	lookType = 570,
 	lookHead = 57,
@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 400000
-monster.maxHealth = 512000
+monster.health = ?
+monster.maxHealth = ?
 monster.race = "blood"
 monster.corpse = 0
 monster.speed = 95
@@ -23,12 +23,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 4000,
 	chance = 10
-}
-
-monster.bosstiary = {
-	bossRaceId = 1811,
-	bossRace = RARITY_ARCHFOE,
-	storageCooldown = Storage.Kilmaresh.UrmahlulluTimer
 }
 
 monster.strategiesTarget = {
@@ -44,7 +38,7 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = false,
-	rewardBoss = false,
+	rewardBoss = true,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
@@ -55,16 +49,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
-}
-
-monster.events = {
-	"UrmahlulluChanges"
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -75,6 +65,10 @@ monster.voices = {
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -?, maxDamage = -?},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -150, maxDamage = -1300},
 	{name ="combat", interval = 3000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -800, radius = 4, effect = CONST_ME_FIREAREA, target = false},
@@ -86,19 +80,20 @@ monster.attacks = {
 monster.defenses = {
 	defense = 84,
 	armor = 84
+--	mitigation = ???,
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 40},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
