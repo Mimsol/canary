@@ -1,8 +1,8 @@
 local mType = Game.createMonsterType("Tarbaz")
 local monster = {}
 
-monster.description = "tarbaz"
-monster.experience = 50000
+monster.description = "Tarbaz"
+monster.experience = 55000
 monster.outfit = {
 	lookType = 842,
 	lookHead = 0,
@@ -13,8 +13,14 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 290000
-monster.maxHealth = 290000
+monster.bosstiary = {
+	bossRaceId = 1188,
+	bossRace = RARITY_ARCHFOE,
+	storageCooldown = Storage.FerumbrasAscension.TarbazTimer,
+}
+
+monster.health = 290000?
+monster.maxHealth = 290000?
 monster.race = "undead"
 monster.corpse = 22495
 monster.speed = 160
@@ -23,12 +29,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 5000,
 	chance = 8
-}
-
-monster.bosstiary = {
-	bossRaceId = 1188,
-	bossRace = RARITY_ARCHFOE,
-	storageCooldown = Storage.FerumbrasAscension.TarbazTimer
 }
 
 monster.strategiesTarget = {
@@ -55,18 +55,17 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "You are a failure.", yell = false}
 }
 
 monster.loot = {
@@ -103,6 +102,13 @@ monster.loot = {
 	{id = 22757, chance = 500, unique = true} -- shroud of despair
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -?, maxDamage = -?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -650, maxDamage = -850, range = ?, effect = <>, target = ?}, --Fire Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -150, maxDamage = -350, range = ?, effect = <>, target = ?}, --Fire Explosion
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -0, maxDamage = -?, range = ?, effect = <>, target = ?}, --Fire Beam
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -1000, maxDamage = -2000},
 	{name ="combat", interval = 3000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -1000, length = 10, spread = 3, effect = CONST_ME_HITBYFIRE, target = false},
@@ -115,21 +121,22 @@ monster.attacks = {
 monster.defenses = {
 	defense = 120,
 	armor = 100,
+--	mitigation = ???,
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 900, maxDamage = 3500, effect = CONST_ME_MAGIC_GREEN, target = false},
 	{name ="speed", interval = 3000, chance = 30, speedChange = 460, effect = CONST_ME_MAGIC_RED, target = false, duration = 7000}
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 10},
-	{type = COMBAT_ENERGYDAMAGE, percent = 10},
-	{type = COMBAT_EARTHDAMAGE, percent = 10},
-	{type = COMBAT_FIREDAMAGE, percent = 10},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Death Priest Shargon")
 local monster = {}
 
 monster.description = "Death Priest Shargon"
-monster.experience = 20000
+monster.experience = ~20000
 monster.outfit = {
 	lookType = 278,
 	lookHead = 0,
@@ -11,6 +11,11 @@ monster.outfit = {
 	lookFeet = 0,
 	lookAddons = 3,
 	lookMount = 0
+}
+
+monster.bosstiary = {
+	bossRaceId = 1047,
+	bossRace = RARITY_BANE,
 }
 
 monster.health = 65000
@@ -23,11 +28,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 5000,
 	chance = 8
-}
-
-monster.bosstiary = {
-	bossRaceId = 1047,
-	bossRace = RARITY_BANE
 }
 
 monster.strategiesTarget = {
@@ -43,7 +43,7 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = false,
-	rewardBoss = false,
+	rewardBoss = true,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
@@ -52,18 +52,14 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
-}
-
-monster.events = {
-	"ShargonKill"
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.summon = {
@@ -91,6 +87,14 @@ monster.loot = {
 	{id = 8531, chance = 9090} -- blood goblet
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -800},
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 699+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HOLYDAMAGE, minDamage = -350, maxDamage = -1000, range = ?, effect = <>, target = ?}, --Energy Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HOLYDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --[[Holy Flash]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -0, maxDamage = -660+, range = ?, effect = <>, target = ?}, --[[Death Damage|Great Death Ball]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 200, attack = 150},
 	{name ="combat", interval = 2000, chance = 12, type = COMBAT_DEATHDAMAGE, minDamage = 0, maxDamage = -660, range = 7, radius = 6, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_MORTAREA, target = false},
@@ -100,20 +104,21 @@ monster.attacks = {
 monster.defenses = {
 	defense = 30,
 	armor = 25,
+--	mitigation = ???,
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 0, maxDamage = 699, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 3},
+	{type = COMBAT_EARTHDAMAGE, percent = 60},
+	{type = COMBAT_FIREDAMAGE, percent = 5},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

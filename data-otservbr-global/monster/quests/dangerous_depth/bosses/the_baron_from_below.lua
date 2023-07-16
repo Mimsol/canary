@@ -1,8 +1,8 @@
-local mType = Game.createMonsterType("The Baron From Below")
+local mType = Game.createMonsterType("The Baron from Below")
 local monster = {}
 
 monster.description = "The Baron From Below"
-monster.experience = 40000
+monster.experience = ?
 monster.outfit = {
 	lookType = 1045,
 	lookHead = 0,
@@ -13,8 +13,13 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 50000
-monster.maxHealth = 50000
+monster.bosstiary = {
+	bossRaceId = 1518,
+	bossRace = RARITY_BANE,
+}
+
+monster.health = ?
+monster.maxHealth = ?
 monster.race = "blood"
 monster.corpse = 27633
 monster.speed = 120
@@ -23,11 +28,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 4000,
 	chance = 10
-}
-
-monster.bosstiary = {
-	bossRaceId = 1518,
-	bossRace = RARITY_BANE
 }
 
 monster.strategiesTarget = {
@@ -54,18 +54,17 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Krrrk!", yell = false}
 }
 
 monster.loot = {
@@ -111,6 +110,14 @@ monster.loot = {
 	{name = "gnome armor", chance = 500}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -2000},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -500, maxDamage = -2000 , range = ?, effect = <>, target = ?}, --life drain [[Wrath of Nature]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -300, maxDamage = -500, range = ?, effect = <>, target = ?}, --Large [[Poison Berserk]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -400, maxDamage = -800, range = ?, effect = <>, target = ?}, --[[Death Damage|Death Beam]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -500, maxDamage = -1000, range = ?, effect = <>, target = ?}, --[[Life Drain Beam]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -1000, radius = 8, effect = CONST_ME_HITAREA, target = false},
@@ -123,23 +130,20 @@ monster.attacks = {
 monster.defenses = {
 	defense = 5,
 	armor = 10
+--	mitigation = ???,
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 60},
-	{type = COMBAT_ENERGYDAMAGE, percent = 60},
-	{type = COMBAT_EARTHDAMAGE, percent = 60},
-	{type = COMBAT_FIREDAMAGE, percent = 100},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 60},
-	{type = COMBAT_HOLYDAMAGE , percent = 60},
-	{type = COMBAT_DEATHDAMAGE , percent = 60}
-}
-
-monster.heals = {
-	{type = COMBAT_FIREDAMAGE, percent = 100},
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

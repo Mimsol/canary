@@ -1,8 +1,8 @@
-local mType = Game.createMonsterType("The Count Of The Core")
+local mType = Game.createMonsterType("The Count of the Core")
 local monster = {}
 
 monster.description = "The Count Of The Core"
-monster.experience = 40000
+monster.experience = ?
 monster.outfit = {
 	lookType = 1046,
 	lookHead = 0,
@@ -13,8 +13,13 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 50000
-monster.maxHealth = 50000
+monster.bosstiary = {
+	bossRaceId = 1519,
+	bossRace = RARITY_BANE,
+}
+
+monster.health = ?
+monster.maxHealth = ?
 monster.race = "blood"
 monster.corpse = 27637
 monster.speed = 135
@@ -23,11 +28,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 5000,
 	chance = 10
-}
-
-monster.bosstiary = {
-	bossRaceId = 1519,
-	bossRace = RARITY_BANE
 }
 
 monster.strategiesTarget = {
@@ -54,19 +54,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Sluuuurp! Sluuuuurp!", yell = false},
-	{text = "Shluush!", yell = false}
+	{text = "Shluush!", yell = false},
+	{text = "Sluuurp!", yell = false},
 }
 
 monster.loot = {
@@ -113,6 +113,10 @@ monster.loot = {
 	{name = "gnome helmet", chance = 100}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -323+, maxDamage = -323+},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1500},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = 0, maxDamage = -1500, range = 3, length = 9, spread = 3, effect = CONST_ME_MORTAREA, target = false},
@@ -124,19 +128,20 @@ monster.attacks = {
 monster.defenses = {
 	defense = 5,
 	armor = 10
+--	mitigation = ???,
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 60},
-	{type = COMBAT_ENERGYDAMAGE, percent = 60},
-	{type = COMBAT_EARTHDAMAGE, percent = 60},
-	{type = COMBAT_FIREDAMAGE, percent = -100},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_FIREDAMAGE, percent = 25},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 60},
-	{type = COMBAT_HOLYDAMAGE , percent = 60},
-	{type = COMBAT_DEATHDAMAGE , percent = 60}
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

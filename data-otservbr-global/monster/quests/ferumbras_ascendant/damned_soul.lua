@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Damned Soul")
 local monster = {}
 
 monster.description = "a damned soul"
-monster.experience = 300
+monster.experience = ?
 monster.outfit = {
 	lookType = 232,
 	lookHead = 0,
@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 800
-monster.maxHealth = 800
+monster.health = ?
+monster.maxHealth = ?
 monster.race = "undead"
 monster.corpse = 22698
 monster.speed = 190
@@ -47,22 +47,19 @@ monster.flags = {
 	runHealth = 800,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Forgive Meeeee!", yell = false},
-	{text = "Mouuuurn meeee!", yell = false},
-	{text = "Help meee!", yell = false}
 }
 
 monster.loot = {
@@ -91,6 +88,9 @@ monster.loot = {
 	{id = 6525, chance = 1250} -- skeleton decoration
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 76, attack = 100},
 	{name ="combat", interval = 2000, chance = 13, type = COMBAT_DEATHDAMAGE, minDamage = -90, maxDamage = -240, length = 3, spread = 0, effect = CONST_ME_MAGIC_RED, target = false},
@@ -100,19 +100,20 @@ monster.attacks = {
 monster.defenses = {
 	defense = 35,
 	armor = 25
+--	mitigation = ???,
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 10},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 100},
+	{type = COMBAT_ENERGYDAMAGE, percent = 100},
 	{type = COMBAT_EARTHDAMAGE, percent = 100},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
-	{type = COMBAT_LIFEDRAIN, percent = 100},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 50},
-	{type = COMBAT_HOLYDAMAGE , percent = -20},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_ICEDAMAGE, percent = 100},
+	{type = COMBAT_HOLYDAMAGE, percent = 100},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

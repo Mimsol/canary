@@ -1,8 +1,8 @@
-local mType = Game.createMonsterType("tremor worm")
+local mType = Game.createMonsterType("Tremor Worm")
 local monster = {}
 
 monster.description = "a tremor worm"
-monster.experience = 80000
+monster.experience = 80000?
 monster.outfit = {
 	lookType = 295,
 	lookHead = 0,
@@ -18,7 +18,7 @@ monster.maxHealth = 125000
 monster.race = "blood"
 monster.corpse = 0
 monster.speed = 85
-monster.manaCost = 330
+monster.manaCost = 0
 
 monster.changeTarget = {
 	interval = 2000,
@@ -49,12 +49,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -68,6 +68,10 @@ monster.loot = {
 	{id = 238, chance = 10000} -- great mana potion
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -400},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 90, attack = 80}
 }
@@ -75,6 +79,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 100,
 	armor = 100
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -86,14 +91,14 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 75},
-	{type = COMBAT_HOLYDAMAGE , percent = 75},
-	{type = COMBAT_DEATHDAMAGE , percent = 75}
+	{type = COMBAT_HOLYDAMAGE, percent = 75},
+	{type = COMBAT_DEATHDAMAGE, percent = 75},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
-	{type = "invisible", condition = false},
+	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
 

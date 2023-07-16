@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Sin Devourer")
 local monster = {}
 
 monster.description = "a sin devourer"
-monster.experience = 500
+monster.experience = ?
 monster.outfit = {
 	lookType = 320,
 	lookHead = 0,
@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 2700
-monster.maxHealth = 2700
+monster.health = ?
+monster.maxHealth = ?
 monster.race = "undead"
 monster.corpse = 0
 monster.speed = 180
@@ -47,14 +47,14 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -76,6 +76,10 @@ monster.loot = {
 	{id = 8042, chance = 520} -- spirit cloak
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -100, maxDamage = -200, range = ?, effect = <>, target = ?}, --Mana Drain
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 50, attack = 30, condition = {type = CONDITION_POISON, totalDamage = 80, interval = 4000}},
 	{name ="nightstalker paralyze", interval = 2000, chance = 19, range = 7, target = false},
@@ -87,27 +91,28 @@ monster.attacks = {
 monster.defenses = {
 	defense = 35,
 	armor = 30,
+--	mitigation = ???,
 	{name ="combat", interval = 2000, chance = 13, type = COMBAT_HEALING, minDamage = 60, maxDamage = 130, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="invisible", interval = 2000, chance = 10, effect = CONST_ME_YELLOW_RINGS}
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 40},
-	{type = COMBAT_ENERGYDAMAGE, percent = 40},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 100},
+	{type = COMBAT_ENERGYDAMAGE, percent = 100},
+	{type = COMBAT_EARTHDAMAGE, percent = 100},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 40},
-	{type = COMBAT_HOLYDAMAGE , percent = 40},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_ICEDAMAGE, percent = 100},
+	{type = COMBAT_HOLYDAMAGE, percent = 100},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {
 	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
-	{type = "invisible", condition = false},
+	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
 

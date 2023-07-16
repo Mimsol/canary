@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Desperate Soul")
 local monster = {}
 
 monster.description = "a desperate soul"
-monster.experience = 0
+monster.experience = ?
 monster.outfit = {
 	lookType = 262,
 	lookHead = 69,
@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 15
-monster.maxHealth = 15
+monster.health = ?
+monster.maxHealth = ?
 monster.race = "blood"
 monster.corpse = 7338
 monster.speed = 335
@@ -37,24 +37,24 @@ monster.flags = {
 	attackable = true,
 	hostile = false,
 	convinceable = false,
-	pushable = true,
+	pushable = false,
 	rewardBoss = false,
 	illusionable = false,
-	canPushItems = false,
+	canPushItems = true,
 	canPushCreatures = false,
 	staticAttackChance = 90,
 	targetDistance = 1,
 	runHealth = 15,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -65,12 +65,16 @@ monster.voices = {
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--}
 monster.attacks = {
 }
 
 monster.defenses = {
 	defense = 7,
 	armor = 6,
+--	mitigation = ???,
 	{name ="speed", interval = 2000, chance = 25, speedChange = 1200, effect = CONST_ME_MAGIC_RED, target = false, duration = 4000}
 }
 
@@ -81,10 +85,10 @@ monster.elements = {
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 100},
 	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 100},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 100},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

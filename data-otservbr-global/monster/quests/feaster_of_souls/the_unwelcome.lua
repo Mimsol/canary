@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("The Unwelcome")
 local monster = {}
 
 monster.description = "The Unwelcome"
-monster.experience = 30000
+monster.experience = ?
 monster.outfit = {
 	lookType = 1277,
 	lookHead = 0,
@@ -13,8 +13,14 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 300000
-monster.maxHealth = 300000
+monster.bosstiary = {
+	bossRaceId = 1868,
+	bossRace = RARITY_ARCHFOE,
+	storageCooldown = Storage.Quest.U12_30.FeasterOfSouls.UnwelcomeTimer,
+}
+
+monster.health = ?
+monster.maxHealth = ?
 monster.race = "undead"
 monster.corpse = 32741
 monster.speed = 125
@@ -23,12 +29,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 60000,
 	chance = 0
-}
-
-monster.bosstiary = {
-	bossRaceId = 1868,
-	bossRace = RARITY_ARCHFOE,
-	storageCooldown = Storage.Quest.U12_30.FeasterOfSouls.UnwelcomeTimer
 }
 
 monster.strategiesTarget = {
@@ -55,20 +55,17 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Where... Where am I?", yell = false},
-	{text = "Is that you, Tom?", yell = false},
-	{text = "Phew, what an awful smell ... oh, that's me.", yell = false}
 }
 
 monster.loot = {
@@ -99,6 +96,10 @@ monster.loot = {
 	{name = "soulful legs", chance = 150}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -?, maxDamage = -?},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 600, maxDamage = -1050, condition = {type = CONDITION_POISON, totalDamage = 4, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 100, type = COMBAT_LIFEDRAIN, minDamage = -900, maxDamage = -1400, effect = CONST_ME_MAGIC_RED, target = true},
@@ -113,21 +114,22 @@ monster.attacks = {
 monster.defenses = {
 	defense = 15,
 	armor = 10,
+--	mitigation = ???,
 	{name ="speed", interval = 10000, chance = 40, speedChange = 510, effect = CONST_ME_MAGIC_GREEN, target = false, duration = 20000},
 	{name ="combat", interval = 5000, chance = 60, type = COMBAT_HEALING, minDamage = 1000, maxDamage = 2500, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 90},
+	{type = COMBAT_ENERGYDAMAGE, percent = 90},
+	{type = COMBAT_EARTHDAMAGE, percent = 90},
+	{type = COMBAT_FIREDAMAGE, percent = 90},
+	{type = COMBAT_LIFEDRAIN, percent = 90},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_ICEDAMAGE, percent = 90},
+	{type = COMBAT_HOLYDAMAGE, percent = 90},
+	{type = COMBAT_DEATHDAMAGE, percent = 90},
 }
 
 monster.immunities = {
