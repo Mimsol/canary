@@ -2989,6 +2989,11 @@ Storage = {
 			LastActivatedAt = 64039,
 		},
 	},
+
+	Marapur = {
+		-- Timira
+		Timira = 100800
+	},
 }
 
 GlobalStorage = {
