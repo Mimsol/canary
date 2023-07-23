@@ -80,21 +80,16 @@ monster.loot = {
 	{name = "glacier mask", chance = 4570},
 	{name = "snowball", chance = 4000, maxCount = 5},
 	{name = "hailstorm rod", chance = 3470},
-	{name = "glacier mask", chance = 250},
 	{name = "glacier amulet", chance = 3290},
 	{name = "moonlight rod", chance = 1830},
-	{name = "glacier kilt", chance = 1100}
+	{name = "glacier kilt", chance = 250}
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -?, maxDamage = -?},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -0, maxDamage = -30?, range = ?, effect = <>, target = ?}, --Throws [[Snowball]]
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -0, maxDamage = -120?, range = ?, effect = <>, target = ?}, --Ice Bomb
---}
+
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -20},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -10, maxDamage = -40, range = 7, radius = 2, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = true}
+	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -160},
+	{name ="combat", interval = 2000, chance = 40, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -80, range = 7, shootEffect = CONST_ANI_SNOWBALL, target = false},
+	{name ="combat", interval = 5000, chance = 100, type = COMBAT_MANADRAIN, minDamage = -0, maxDamage = -120, radius = 5, effect = CONST_ME_ICETORNADO, target = false},
 }
 
 monster.defenses = {
