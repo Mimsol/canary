@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 2,
-	Locations = "Replica Dungeon."
-	}
+	Locations = "Replica Dungeon"
+}
 
 monster.health = 2000
 monster.maxHealth = 2000
@@ -59,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -92,6 +92,10 @@ monster.loot = {
 	{id = 7428, chance = 13} -- bonebreaker
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -?},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 40, attack = 40},
 	{name ="combat", interval = 2000, chance = 11, type = COMBAT_ENERGYDAMAGE, minDamage = -100, maxDamage = -210, radius = 3, effect = CONST_ME_YELLOWENERGY, target = false},
@@ -100,7 +104,7 @@ monster.attacks = {
 }
 
 monster.defenses = {
-	defense = 25,
+	defense = 45,
 	armor = 25,
 	mitigation = 0.83,
 	{name ="combat", interval = 2000, chance = 11, type = COMBAT_HEALING, minDamage = 50, maxDamage = 150, effect = CONST_ME_MAGIC_BLUE, target = false},
@@ -116,8 +120,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -15},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = -15},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
