@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 1,
 	Locations = "Warzone 2."
-}
+	}
 
 monster.health = 9000
 monster.maxHealth = 9000
@@ -51,7 +51,7 @@ monster.flags = {
 	pushable = false,
 	rewardBoss = false,
 	illusionable = false,
-	canPushItems = false,
+	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 90,
 	targetDistance = 1,
@@ -60,18 +60,18 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = true,
-	canWalkOnPoison = true,
+	canWalkOnPoison = true
 }
 
 monster.light = {
-	level = 10,
-	color = 206,
+	level = 0,
+	color = 0
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Grrrrunt", yell = false},
+	{text = "Grrrrunt", yell = false}
 }
 
 monster.loot = {
@@ -106,15 +106,8 @@ monster.loot = {
 	{name = "prismatic bolt", chance = 12580, maxCount = 5}
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -0},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -800?, range = ?, effect = <>, target = ?}, --Fire Beam
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -0, maxDamage = -300?, range = ?, effect = <>, target = ?}, --Small Fireball
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200?, maxDamage = -200?, range = ?, effect = <>, target = ?}, --Death Mana Drain Beam
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Unknown Effect, maxDamage = -Unknown Effect, range = ?, effect = <>, target = ?}, --Spark wave
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -300?, range = ?, effect = <>, target = ?}, --Fire Berser
---}
+--todoo this one confusing me 
+
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -350, maxDamage = -700, length = 8, spread = 3, effect = CONST_ME_FIREATTACK, target = false},
@@ -126,7 +119,7 @@ monster.attacks = {
 }
 
 monster.defenses = {
-	defense = 60,
+	defense = 84,
 	armor = 84,
 	mitigation = 2.51,
 }
@@ -140,8 +133,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -5},
-	{type = COMBAT_HOLYDAMAGE, percent = 0},
-	{type = COMBAT_DEATHDAMAGE, percent = 35},
+	{type = COMBAT_HOLYDAMAGE , percent = 0},
+	{type = COMBAT_DEATHDAMAGE , percent = 35}
 }
 
 monster.immunities = {

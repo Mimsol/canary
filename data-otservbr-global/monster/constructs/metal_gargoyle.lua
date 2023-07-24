@@ -23,8 +23,9 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 0,
-	Locations = "Workshop Quarter, Glooth Factory, Underground Glooth Factory, Abandoned Sewers, Oramond Dungeon depending on Magistrate votes, Jaccus Maxxens Dungeon."
-}
+	Locations = "Workshop Quarter, Glooth Factory, Underground Glooth Factory, Abandoned Sewers, \z
+		Oramond Dungeon (depending on Magistrate votes), Jaccus Maxxens Dungeon."
+	}
 
 monster.health = 2100
 monster.maxHealth = 2100
@@ -62,19 +63,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true,
+	canWalkOnPoison = true
 }
 
 monster.light = {
 	level = 0,
-	color = 0,
+	color = 0
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "clonk", yell = false},
 	{text = "*stomp*", yell = false},
+	{text = "clonk", yell = false}
 }
 
 monster.loot = {
@@ -94,13 +95,6 @@ monster.loot = {
 	{id = 8896, chance = 2990} -- slightly rusted armor
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -200?+},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -0, maxDamage = -200?, range = ?, effect = <>, target = ?}, --Yellow Electric Beam
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -100?, range = ?, effect = <>, target = ?}, --Death Ball on target
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Cursing Missile
---}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 84, attack = 50},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -125, maxDamage = -230, length = 8, spread = 3, effect = CONST_ME_YELLOWENERGY, target = false},
@@ -109,7 +103,7 @@ monster.attacks = {
 }
 
 monster.defenses = {
-	defense = 42,
+	defense = 60,
 	armor = 60,
 	mitigation = 1.57,
 }
@@ -119,12 +113,12 @@ monster.elements = {
 	{type = COMBAT_ENERGYDAMAGE, percent = -10},
 	{type = COMBAT_EARTHDAMAGE, percent = 100},
 	{type = COMBAT_FIREDAMAGE, percent = 10},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_LIFEDRAIN, percent = 100},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -5},
-	{type = COMBAT_HOLYDAMAGE, percent = 0},
-	{type = COMBAT_DEATHDAMAGE, percent = 80},
+	{type = COMBAT_HOLYDAMAGE , percent = 0},
+	{type = COMBAT_DEATHDAMAGE , percent = 80}
 }
 
 monster.immunities = {

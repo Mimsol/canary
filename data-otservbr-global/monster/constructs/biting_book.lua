@@ -23,8 +23,9 @@ monster.Bestiary = {
 	CharmsPoints = 50,
 	Stars = 4,
 	Occurrence = 0,
-	Locations = "Secret Library earth, energy, fire and ice sections. Also two incarcerated in the Issavi prison Mapper Coordstexthere132.75123.157210.50.5, reachable from the city Library."
-}
+	Locations = "The Secret Library. There are also two incarcerated in the Issavi prison, \z
+		reachable from the city Library."
+	}
 
 monster.health = 6500
 monster.maxHealth = 6500
@@ -59,17 +60,18 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true,
+	canWalkOnPoison = true
 }
 
 monster.light = {
 	level = 0,
-	color = 0,
+	color = 0
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
+	{text = "Beware of the book!", yell = false},
 }
 
 monster.loot = {
@@ -80,22 +82,15 @@ monster.loot = {
 	{name = "silken bookmark", chance = 500, maxCount = 3}
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -1055?},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -1210?, range = ?, effect = <>, target = ?}, --Spit
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -800, maxDamage = -1210?, range = ?, effect = <>, target = ?}, --Bat wave
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -800, maxDamage = -1200
-  , range = ?, effect = <>, target = ?}, --Dust Cloud
---}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1055},
-	{name ="combat", interval = 1000, chance = 12, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -1210, radius = 5, effect = CONST_ME_SMOKE, target = false},
-	{name ="combat", interval = 1000, chance = 14, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -1210, radius = 3, effect = CONST_ME_BATS, target = false}
+	{name ="combat", interval = 1000, chance = 12, type = COMBAT_PHYSICALDAMAGE, minDamage = -800, maxDamage = -1210, radius = 5, effect = CONST_ME_SMOKE, target = false},
+	{name ="combat", interval = 1000, chance = 14, type = COMBAT_PHYSICALDAMAGE, minDamage = -800, maxDamage = -1210, radius = 3, effect = CONST_ME_BATS, target = false},
+ 	{name ="combat", interval = 2000, chance = 40, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -1210, range = 4, shootEffect = CONST_ANI_SMALLSTONE, target = false},
 }
 
 monster.defenses = {
-	defense = 40,
+	defense = 76,
 	armor = 76,
 	mitigation = 1.88,
 }
@@ -109,12 +104,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE, percent = 0},
-	{type = COMBAT_DEATHDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE , percent = 0},
+	{type = COMBAT_DEATHDAMAGE , percent = 0}
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = true},
+	{type = "paralyze", condition = false},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

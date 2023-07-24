@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 50,
 	Stars = 4,
 	Occurrence = 1,
-	Locations = "A total of 8 infected weepers spawn in Warzone 2, you can see the exact locations httpstibia.fandom.comwikiMappercoords129.27-124.202-11-2-1-1mark1129.26-124.215-11-21-1mark2129.35-124.172-11-21-3mark3129.63-124.191-11-21-3mark4128.251-124.226-11-21-1 here."
-}
+	Locations = "Warzone 2."
+	}
 
 monster.health = 3000
 monster.maxHealth = 3000
@@ -51,7 +51,7 @@ monster.flags = {
 	pushable = false,
 	rewardBoss = false,
 	illusionable = false,
-	canPushItems = false,
+	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 80,
 	targetDistance = 1,
@@ -60,25 +60,25 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = true,
-	canWalkOnPoison = true,
+	canWalkOnPoison = true
 }
 
 monster.light = {
-	level = 5,
-	color = 157,
+	level = 0,
+	color = 0
 }
 
 monster.summon = {
-	maxSummons = 6,
-	summons = {
-		{name = "Parasite", chance = 10, interval = 2000, count = 6}
-	}
+	--maxSummons = 6,
+	--summons = {
+	--	{name = "Parasite", chance = 10, interval = 2000, count = 6} -- Not normal summon
+	--}
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Moooaaan", yell = false},
+	{text = "Moooaaan", yell = false}
 }
 
 monster.loot = {
@@ -87,25 +87,18 @@ monster.loot = {
 	{id = 12600, chance = 1460} -- coal
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -500},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -300, maxDamage = -800, range = ?, effect = <>, target = ?}, --Fire Beam
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -300?, range = ?, effect = <>, target = ?}, --Life Drain Bomb on target
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Spark wave
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -summons [[Parasite]] inside the radius, maxDamage = -summons [[Parasite]] inside the radius, range = ?, effect = <>, target = ?}, --Blood Ball
---}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -280},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -250, maxDamage = -700, length = 5, spread = 3, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 2000, chance = 30, type = COMBAT_FIREDAMAGE, minDamage = -80, maxDamage = -250, radius = 3, effect = CONST_ME_HITBYFIRE, target = false},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
+	-- Life Drain bomb 0-300 dmg Target true CONST_ANI_DEATH Effect CONST_ME_MAGIC_RED -- todoo
+	{name ="combat", interval = 2000, chance = 100, type = COMBAT_FIREDAMAGE, minDamage = -300, maxDamage = -800, length = 7, spread = 8, effect = CONST_ME_FIREATTACK, target = false},
 	{name ="speed", interval = 2000, chance = 10, speedChange = -800, length = 5, spread = 3, effect = CONST_ME_BLOCKHIT, target = false, duration = 30000}
+	-- summon spell Blood Ball spawns parasites inside a 5 Radius
 }
 
 monster.defenses = {
-	defense = 45,
+	defense = 76,
 	armor = 76,
-	mitigation = 2.19,
+	mitigation = 0.70,
 	{name ="invisible", interval = 2000, chance = 10, effect = CONST_ME_MAGIC_BLUE}
 }
 
@@ -118,8 +111,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE, percent = 0},
-	{type = COMBAT_DEATHDAMAGE, percent = 30},
+	{type = COMBAT_HOLYDAMAGE , percent = 0},
+	{type = COMBAT_DEATHDAMAGE , percent = 30}
 }
 
 monster.immunities = {
