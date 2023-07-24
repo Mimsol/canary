@@ -23,7 +23,7 @@ monster.Bestiary = {
 	CharmsPoints = 50,
 	Stars = 4,
 	Occurrence = 0,
-	Locations = "Secret Library earth, energy, fire and ice sections. Also two incarcerated in the Issavi prison Mapper Coordstexthere132.75123.157210.50.5, reachable from the city Library."
+	Locations = "Secret Library earth, energy, fire and ice sections."
 }
 
 monster.health = 6500
@@ -81,18 +81,13 @@ monster.loot = {
 }
 
 -- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -1055?},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -1210?, range = ?, effect = <>, target = ?}, --Spit
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -800, maxDamage = -1210?, range = ?, effect = <>, target = ?}, --Bat wave
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -800, maxDamage = -1200
-  , range = ?, effect = <>, target = ?}, --Dust Cloud
---}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1055},
-	{name ="combat", interval = 1000, chance = 12, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -1210, radius = 5, effect = CONST_ME_SMOKE, target = false},
-	{name ="combat", interval = 1000, chance = 14, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -1210, radius = 3, effect = CONST_ME_BATS, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -1055},
+	{name ="combat", interval = 2000, chance = 40, type = COMBAT_PHYSICALDAMAGE, minDamage = -900, maxDamage = -1210, range = 7, shootEffect = CONST_ANI_SMALLEARTH, target = false}, -- Spit
+	{name ="combat", interval = 2000, chance = 19, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -1210, length = 5, spread = 3, effect = CONST_ME_BATS, target = false}, --Bat Wave
+	{name ="combat", interval = 2000, chance = 18, type = COMBAT_PHYSICALDAMAGE, minDamage = -800, maxDamage = -1200, radius = 5, effect = CONST_ME_SMOKE, target = false}, --Dust Cloud
 }
+
 
 monster.defenses = {
 	defense = 40,

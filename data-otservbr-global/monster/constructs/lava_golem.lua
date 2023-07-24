@@ -107,22 +107,16 @@ monster.loot = {
 }
 
 -- TODO: monster-abilities
---monster.attacks = {
+monster.attacks = {
 --	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -0},
 --	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -800?, range = ?, effect = <>, target = ?}, --Fire Beam
 --	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -0, maxDamage = -300?, range = ?, effect = <>, target = ?}, --Small Fireball
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200?, maxDamage = -200?, range = ?, effect = <>, target = ?}, --Death Mana Drain Beam
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_MANADRAIN, minDamage = -200, maxDamage = -200, length 8, spread = 5, effect = CONST_ME_MORTAREA, target = false}, --Death Mana Drain Beam
 --	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Unknown Effect, maxDamage = -Unknown Effect, range = ?, effect = <>, target = ?}, --Spark wave
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -300?, range = ?, effect = <>, target = ?}, --Fire Berser
---}
-monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -350, maxDamage = -700, length = 8, spread = 3, effect = CONST_ME_FIREATTACK, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_MANADRAIN, minDamage = -600, maxDamage = -1300, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
-	{name ="lava golem soulfire", interval = 2000, chance = 15, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -220, maxDamage = -350, radius = 4, effect = CONST_ME_FIREAREA, target = true},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -300, radius = 3, effect = CONST_ANI_FIRE, target = false}, --Fire Berser
 	{name ="speed", interval = 2000, chance = 10, speedChange = -800, length = 5, spread = 3, effect = CONST_ME_BLOCKHIT, target = false, duration = 30000},
-	{name ="combat", interval = 2000, chance = 30, type = COMBAT_FIREDAMAGE, minDamage = -280, maxDamage = -350, radius = 3, effect = CONST_ME_HITBYFIRE, target = false}
+	--{name ="lava golem soulfire", interval = 2000, chance = 15, target = false}, -- Not named in the wiki
+
 }
 
 monster.defenses = {

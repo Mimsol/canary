@@ -69,11 +69,11 @@ monster.light = {
 }
 
 monster.summon = {
-	maxSummons = 6,
-	summons = {
-		{name = "Parasite", chance = 10, interval = 2000, count = 6}
-	}
-}
+--	maxSummons = 6,
+--	summons = {
+--		{name = "Parasite", chance = 10, interval = 2000, count = 6}
+--	}
+} -- No summons here due the Spell when we want be accurate 
 
 monster.voices = {
 	interval = 5000,
@@ -88,18 +88,12 @@ monster.loot = {
 }
 
 -- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -500},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -300, maxDamage = -800, range = ?, effect = <>, target = ?}, --Fire Beam
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -300?, range = ?, effect = <>, target = ?}, --Life Drain Bomb on target
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Spark wave
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -summons [[Parasite]] inside the radius, maxDamage = -summons [[Parasite]] inside the radius, range = ?, effect = <>, target = ?}, --Blood Ball
---}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -280},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -250, maxDamage = -700, length = 5, spread = 3, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 2000, chance = 30, type = COMBAT_FIREDAMAGE, minDamage = -80, maxDamage = -250, radius = 3, effect = CONST_ME_HITBYFIRE, target = false},
-	{name ="speed", interval = 2000, chance = 10, speedChange = -800, length = 5, spread = 3, effect = CONST_ME_BLOCKHIT, target = false, duration = 30000}
+	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -500},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -300, maxDamage = -800, length = 8, spread = 5, effect = CONST_ME_FIREATTACK, target = false}, --Fire Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -300?, range = ?, effect = <>, target = ?}, --Life Drain Bomb on target idk if spell
+{name ="speed", interval = 2000, chance = 10, speedChange = -800, length = 5, spread = 3, effect = CONST_ME_BLOCKHIT, target = false, duration = 30000}
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -summons [[Parasite]] inside the radius, maxDamage = -summons [[Parasite]] inside the radius, range = ?, effect = <>, target = ?}, --Blood Ball probaly spell also
 }
 
 monster.defenses = {

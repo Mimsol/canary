@@ -86,15 +86,10 @@ monster.loot = {
 }
 
 -- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -45},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -60, range = ?, effect = <>, target = ?}, --[[Boulder]]
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -just 1, maxDamage = -2 s, range = ?, effect = <>, target = ?}, --[[Drunkenness]]
---}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -45},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -60, range = 7, shootEffect = CONST_ANI_SMALLSTONE, effect = CONST_ME_EXPLOSIONAREA, target = false},
-	{name ="drunk", interval = 2000, chance = 10, range = 7, shootEffect = CONST_ANI_EXPLOSION, effect = CONST_ME_STUN, target = true, duration = 2000}
+	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -45},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -60, range = 7, shootEffect = CONST_ANI_SMALLSTONE, effect = CONST_ME_EXPLOSIONAREA, target = false}, --[[Boulder]]
+	{name ="drunk", interval = 2000, chance = 10, range = 7, shootEffect = CONST_ANI_EXPLOSION, effect = CONST_ME_STUN, target = true, duration = 2000} --[[Drunkenness]]
 }
 
 monster.defenses = {

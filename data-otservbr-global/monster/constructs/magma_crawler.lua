@@ -105,24 +105,15 @@ monster.loot = {
 }
 
 -- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -500?},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -0, maxDamage = -700, range = ?, effect = <>, target = ?}, --Fire Berserk
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -0, maxDamage = -700?, range = ?, effect = <>, target = ?}, --Great Death Beam
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -0, maxDamage = -850?, range = ?, effect = <>, target = ?}, --Flame Wave
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Burning Strike
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Burning Fireball on itself
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Unknown Effect, probably Paralysis same as [[Infected Weeper]], maxDamage = -Unknown Effect, probably Paralysis same as [[Infected Weeper]], range = ?, effect = <>, target = ?}, --Spark wave
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Unknown Effect, maxDamage = -Unknown Effect, range = ?, effect = <>, target = ?}, --Red Sparkles Explosion on itself
---}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -203},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -300, maxDamage = -1100, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
-	{name ="magma crawler wave", interval = 2000, chance = 15, minDamage = -290, maxDamage = -800, target = false},
-	{name ="magma crawler soulfire", interval = 2000, chance = 20, target = false},
-	{name ="soulfire rune", interval = 2000, chance = 10, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -140, maxDamage = -180, radius = 3, effect = CONST_ME_HITBYFIRE, target = false},
-	{name ="speed", interval = 2000, chance = 10, speedChange = -800, radius = 2, effect = CONST_ME_MAGIC_RED, target = false, duration = 20000}
+	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -500},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -0, maxDamage = -700, radius = 3, effect = CONST_ME_HITBYFIRE, target = false}, --Fire Berserk
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -0, maxDamage = -700, length = 8, spread = 5, effect = CONST_ME_MORTAREA, target = false}, --Great Death Beam
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -0, maxDamage = -850, length = 3, spread = 1, effect = CONST_ME_FIREATTACK, target = false}, --Flame Wave
+	{name ="combat", interval = 1000, chance = 15, type = COMBAT_ICEDAMAGE, minDamage = -50, maxDamage = -85, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_HITBYFIRE, target = false},--Burning Strike
+	{name ="lava golem soulfire", interval = 2000, chance = 15, target = false}, --Burning Fireball on itself
+	{name ="speed", interval = 2000, chance = 10, speedChange = -800, length = 5, spread = 3, effect = CONST_ME_BLOCKHIT, target = false, duration = 30000} -- [[Infected Weeper]], range = ?, effect = <>, target = ?}, --Spark wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Unknown Effect, maxDamage = -Unknown Effect, range = ?, effect = <>, target = ?}, --Red Sparkles Explosion on itself
 }
 
 monster.defenses = {

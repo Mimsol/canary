@@ -23,7 +23,7 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 3,
-	Locations = "Edron, httptibia.wikia.comwikiMappercoords130.23,124.96,7 here."
+	Locations = "Edron."
 }
 
 monster.health = 1000
@@ -99,16 +99,10 @@ monster.loot = {
 }
 
 -- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -100},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -120, range = ?, effect = <>, target = ?}, --Energy Berserk
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -60+, range = ?, effect = <>, target = ?}, --Energy Wave
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1 second?, maxDamage = -1 second?, range = ?, effect = <>, target = ?}, --Distance [[Drunkenness]]
---}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -80, maxDamage = -120, radius = 3, effect = CONST_ME_YELLOWENERGY, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -125, maxDamage = -170, length = 5, spread = 2, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = false},
+	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -100},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -0, maxDamage = -120, radius = 3, effect = CONST_ME_PURPLEENERGY, target = false}, --Energy Berserk
+	{name ="combat", interval = 2000, chance = 19, type = COMBAT_ENERGYDAMAGE, minDamage = -0, maxDamage = -60, length = 5, spread = 3, effect = CONST_ME_PURPLEENERGY, target = false}, --Energy Wave
 	{name ="drunk", interval = 2000, chance = 10, range = 7, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_STUN, target = true, duration = 3000}
 }
 

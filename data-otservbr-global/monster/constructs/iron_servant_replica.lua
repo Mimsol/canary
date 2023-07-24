@@ -81,14 +81,9 @@ monster.loot = {
 }
 
 -- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -154+},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -162+, range = ?, effect = <>, target = ?}, --[[Explosion]]
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1 second [[Drunkenness]], maxDamage = -1 second [[Drunkenness]], range = ?, effect = <>, target = ?}, --Shoots [[Dazzled]]
---}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 20, attack = 30},
-	{name ="combat", interval = 2000, chance = 12, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -60, range = 7, shootEffect = CONST_ANI_EXPLOSION, effect = CONST_ME_EXPLOSIONAREA, target = false},
+	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -154},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -162, radius = 5, effect = CONST_ME_ENERGY, target = false}, --[[Explosion]]
 	{name ="drunk", interval = 2000, chance = 14, range = 7, shootEffect = CONST_ANI_EXPLOSION, effect = CONST_ME_STUN, target = false, duration = 2000}
 }
 

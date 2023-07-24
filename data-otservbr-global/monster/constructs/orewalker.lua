@@ -108,9 +108,9 @@ monster.loot = {
 
 -- TODO: monster-abilities
 --monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -300+},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -0, maxDamage = -1500, range = ?, effect = <>, target = ?}, --Groundshaker Beam
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -400?, range = ?, effect = <>, target = ?}, --Life Drain Spark Berserk
+	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -300},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -0, maxDamage = -1500, length = 8 spread = 5, effect = CONST_ME_GROUNDSHAKER, target = ?false}, --Groundshaker Beam
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -200, maxDamage = -400, radius = 3, effect = CONST_ME_BLOCKHIT, target = false}, --Life Drain Spark Berserk
 --	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -400?, range = ?, effect = <>, target = ?}, --Death Mana Drain Wave
 --	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -causes [[Poison]] at 54hp/turn, maxDamage = -causes [[Poison]] at 54hp/turn, range = ?, effect = <>, target = ?}, --[[Viper Star]] Bomb
 --	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Musical Drunk Bomb

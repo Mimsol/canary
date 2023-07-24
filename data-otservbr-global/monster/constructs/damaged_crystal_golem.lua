@@ -78,15 +78,14 @@ monster.voices = {
 monster.loot = {
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 10},
---}
+monster.attacks = {
+}
 
 monster.defenses = {
 	defense = 5,
 	armor = 30,
 	mitigation = 0.86,
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 0, maxDamage = 10, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

@@ -89,15 +89,9 @@ monster.loot = {
 	{name = "gear crystal", chance = 200}
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -45},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -45, range = ?, effect = <>, target = ?}, --Throws [[Small Stone]]
---	{name ="healing", interval = 2000, chance = 20, minDamage = 5, maxDamage = 11},
---}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -45},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -45, range = 7, shootEffect = CONST_ANI_SMALLSTONE, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -45},
+	{name ="combat", interval = 2000, chance = 40, type = COMBAT_ICEDAMAGE, minDamage = 0, maxDamage = -45, range = 7, shootEffect = CONST_ANI_SMALLSTONE, target = false}, --Throws [[Small Stone]]
 }
 
 monster.defenses = {

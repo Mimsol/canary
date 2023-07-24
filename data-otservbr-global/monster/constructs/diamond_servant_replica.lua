@@ -92,7 +92,7 @@ monster.loot = {
 	{id = 7428, chance = 13} -- bonebreaker
 }
 
--- TODO: monster-abilities
+--TODO: monster-abilities
 --monster.attacks = {
 --	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -?},
 --}
