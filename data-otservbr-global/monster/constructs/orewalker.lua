@@ -106,27 +106,16 @@ monster.loot = {
 	{name = "crystal crossbow", chance = 300}
 }
 
--- TODO: monster-abilities
---monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -300},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -0, maxDamage = -1500, length = 8 spread = 5, effect = CONST_ME_GROUNDSHAKER, target = ?false}, --Groundshaker Beam
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -200, maxDamage = -400, radius = 3, effect = CONST_ME_BLOCKHIT, target = false}, --Life Drain Spark Berserk
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -400?, range = ?, effect = <>, target = ?}, --Death Mana Drain Wave
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -causes [[Poison]] at 54hp/turn, maxDamage = -causes [[Poison]] at 54hp/turn, range = ?, effect = <>, target = ?}, --[[Viper Star]] Bomb
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Musical Drunk Bomb
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Unknown effect, maybe [[Paralysis|paralyzes]] you, maxDamage = -Unknown effect, maybe [[Paralysis|paralyzes]] you, range = ?, effect = <>, target = ?}, --Spark wave
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Unknown effect, maxDamage = -Unknown effect, range = ?, effect = <>, target = ?}, --Red Sparkles Explosion on self
---}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300},
-	{name ="orewalker wave", interval = 2000, chance = 15, minDamage = -296, maxDamage = -700, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -1500, length = 6, spread = 3, effect = CONST_ME_GROUNDSHAKER, target = false},
-	-- poison
-	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 10, minDamage = -800, maxDamage = -1080, radius = 3, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_SMALLPLANTS, target = true},
+	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -300},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = 0, maxDamage = -1500, length = 8, spread = 5, effect = CONST_ME_GROUNDSHAKER, target = false}, 
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -200, maxDamage = -400, radius = 3, effect = CONST_ME_BLOCKHIT, target = false}, 
+	{name ="orewalker wave", interval = 2000, chance = 15, minDamage = -200, maxDamage = -400, target = false},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_POISONDAMAGE, minDamage = -60, maxDamage = -140, range = 7, radius = 4, shootEffect = CONST_ANI_GREENSTAR, effect = CONST_ME_SMALLPLANTS, target = true}, -- TODO: im not sure if its correct with the poison
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, radius = 5, effect = CONST_ME_SOUND_PURPLE, target = false}, 
 	{name ="drunk", interval = 2000, chance = 15, radius = 4, effect = CONST_ME_SOUND_PURPLE, target = false, duration = 6000},
 	{name ="speed", interval = 2000, chance = 15, speedChange = -800, radius = 2, effect = CONST_ME_MAGIC_RED, target = false, duration = 20000}
 }
-
 monster.defenses = {
 	defense = 45,
 	armor = 79,

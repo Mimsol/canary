@@ -85,7 +85,6 @@ monster.loot = {
 	{name = "slime mould", chance = 310}
 }
 
--- TODO: monster-abilities
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -45},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -60, range = 7, shootEffect = CONST_ANI_SMALLSTONE, effect = CONST_ME_EXPLOSIONAREA, target = false}, --[[Boulder]]

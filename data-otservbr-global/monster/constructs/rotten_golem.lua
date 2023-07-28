@@ -95,20 +95,12 @@ monster.loot = {
 	{id = 34109, chance = 50} -- bag you desire
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -700},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -1100, maxDamage = -1300, range = ?, effect = <>, target = ?}, --Smaller Earth Explosion
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HOLYDAMAGE, minDamage = -1000, maxDamage = -1200, range = ?, effect = <>, target = ?}, --Energy Chain (Through nearby characters)
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HOLYDAMAGE, minDamage = -1200, maxDamage = -1400, range = ?, effect = <>, target = ?}, --Holy Strike
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -[[Rooted|Roots]] you on place, maxDamage = -[[Rooted|Roots]] you on place, range = ?, effect = <>, target = ?}, --Shoots [[Leaf Star]]
---}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -950},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HOLYDAMAGE, minDamage = -650, maxDamage = -900, range = 7, shootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYAREA, target = true},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -700},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -750, maxDamage = -1200, radius = 7, effect = CONST_ME_BIGPLANTS, target = false},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HOLYDAMAGE, minDamage = -1200, maxDamage = -1400, range = 7, shootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYAREA, target = true},
 	{name ="root", interval = 2000, chance = 10, target = true}
-	-- Chain: const_me-> CONST_ME_GREEN_ENERGY_SPARK, combat_t->COMBAT_EARTHDAMAGE
+	--Chains COMBAT_EARTHDAMAGE CONST_ME_GREEN_ENERGY_SPARK -- TODO
 }
 
 monster.defenses = {

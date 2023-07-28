@@ -98,7 +98,6 @@ monster.loot = {
 	{name = "slime mould", chance = 480}
 }
 
--- TODO: monster-abilities
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -100},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -0, maxDamage = -120, radius = 3, effect = CONST_ME_PURPLEENERGY, target = false}, --Energy Berserk

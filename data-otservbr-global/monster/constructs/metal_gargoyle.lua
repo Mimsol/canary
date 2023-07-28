@@ -94,12 +94,11 @@ monster.loot = {
 	{id = 8896, chance = 2990} -- slightly rusted armor
 }
 
--- TODO: monster-abilities
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -200},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -0, maxDamage = -200, length = 8, spread = 5, effect = CONST_ME_YELLOWENERGY, target = false}, --Yellow Electric Beam
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -100?, range = ?, effect = <>, target = ?}, --Death Ball on target
-	{name ="metal gargoyle curse", interval = 2000, chance = 13, target = false}, --Cursing Missile
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -0, maxDamage = -200, length = 8, spread = 5, effect = CONST_ME_YELLOWENERGY, target = false},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = 0, maxDamage = -100, range = 7, radius = 3, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
+	{name ="metal gargoyle curse", interval = 2000, chance = 13, target = false},
 }
 
 monster.defenses = {
